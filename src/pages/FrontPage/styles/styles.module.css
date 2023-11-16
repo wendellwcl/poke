@@ -54,11 +54,13 @@
   flex-wrap: wrap;
   gap: 24px;
   margin: 32px 0;
+  margin-bottom: 64px;
   padding: 16px;
 }
 @media screen and (max-width: 1023px) {
   .img_container {
     flex-grow: 1;
+    margin-bottom: 0;
   }
 }
 .img_container a {
@@ -67,7 +69,7 @@
   align-items: center;
   width: 100%;
   max-width: 250px;
-  flex: 1 1 250px;
+  flex: 1 1 180px;
 }
 .img_container a span {
   margin-bottom: 8px;
@@ -87,10 +89,11 @@
 .carousel_container:before {
   content: "";
   position: absolute;
-  right: -50px;
+  left: 25px;
   bottom: 0;
-  width: calc(100% + 50px);
-  height: calc(100vh + 96px);
+  width: calc(100% + 100px);
+  height: 200vh;
+  min-height: 1080px;
   background-color: #b3bf54;
   transform: skewX(-5deg);
   z-index: -1;
@@ -101,12 +104,14 @@
     top: -50px;
     width: 100%;
     height: calc(100% + 60px);
+    min-height: auto;
     transform: skewY(5deg);
   }
 }
 
 .carousel {
   width: 100%;
-  max-width: 600px;
+  max-width: 480px;
+  max-height: 480px;
   aspect-ratio: 1/1;
 }/*# sourceMappingURL=styles.module.css.map */
