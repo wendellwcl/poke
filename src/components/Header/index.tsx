@@ -20,7 +20,7 @@ const Header = () => {
             <nav className={styles.nav} ref={navRef}>
                 <ul>
                     <li>
-                        <a href="#">Quem é esse?</a>
+                        <a href="#">Quem é esse Pokémon ?</a>
                     </li>
                     <li>
                         <a href="#">Pokédex</a>
