@@ -115,5 +115,39 @@
     width: 100%;
     max-width: 480px;
     max-height: 480px;
+    position: relative;
     aspect-ratio: 1/1;
+
+    img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        opacity: 0;
+        animation: carouselAnimation 32s linear infinite;
+
+        @for $i from 1 through 4 {
+            &:nth-child(#{$i}) {
+                animation-delay: (($i - 1) * 8s);
+            }
+        }
+    }
+}
+
+@keyframes carouselAnimation {
+    0% {
+        opacity: 0;
+    }
+    3% {
+        opacity: 1;
+    }
+    22% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
 }
