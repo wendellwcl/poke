@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { BsList } from "react-icons/bs";
+import { NavLink } from "react-router-dom";
 
 import styles from "./styles/styles.module.css";
 
@@ -13,20 +14,20 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <h1 className={styles.logo}>
-                <a href="#">
+                <NavLink to="/">
                     <img src="/Pokemon_logo.svg" alt="pokemon logo" />
-                </a>
+                </NavLink>
             </h1>
             <nav className={styles.nav} ref={navRef}>
                 <ul>
                     <li>
-                        <a href="#">Quem é esse Pokémon ?</a>
+                        <NavLink to="/game">Quem é esse Pokémon ?</NavLink>
                     </li>
                     <li>
-                        <a href="#">Pokédex</a>
+                        <NavLink to="/pokedex">Pokédex</NavLink>
                     </li>
                     <li>
-                        <a href="#">Sobre</a>
+                        <NavLink to="/sobre">Sobre</NavLink>
                     </li>
                 </ul>
             </nav>

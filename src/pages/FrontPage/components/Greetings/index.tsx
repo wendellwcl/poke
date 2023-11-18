@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styles from "./styles/styles.module.css";
 
 interface Props {
@@ -11,21 +13,21 @@ const Greetings = ({ myClassName }: Props) => {
                 <h2>Temos Que Pegar !</h2>
                 <p>
                     A jornada para se tornar um Mestre Pokémon começa aqui.
-                    Explore a <a href="#">Pokédex</a> e conheça todas espécies.
-                    Prepare-se para a batalha e teste seus conhecimentos
-                    Pokémon! Torne-se um verdadeiro campeão em{" "}
-                    <a href="#">"Quem é esse Pokémon ?"</a>
+                    Explore a <Link to="/pokedex">Pokédex</Link> e conheça todas
+                    espécies. Prepare-se para a batalha e teste seus
+                    conhecimentos Pokémon! Torne-se um verdadeiro campeão em{" "}
+                    <Link to="/game">"Quem é esse Pokémon ?"</Link>
                 </p>
             </div>
             <div className={styles.img_container}>
-                <a href="#">
+                <Link to="/pokedex">
                     <span>Pokédex</span>
                     <img src="/Pokedex.png" alt="Acessar Pokédex" />
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="/game">
                     <span>Quem é esse Pokémon ?</span>
                     <img src="/Game.png" alt="Jogar 'Quem é esse Pokémon ?'" />
-                </a>
+                </Link>
             </div>
         </div>
     );
