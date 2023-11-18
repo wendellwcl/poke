@@ -4,6 +4,9 @@
   align-items: center;
   justify-content: space-between;
 }
+.greetings_container a {
+  font-family: Nexa;
+}
 .greetings_container .greetings_msg {
   height: 100%;
   display: flex;
@@ -12,8 +15,14 @@
   flex-grow: 1;
 }
 .greetings_container .greetings_msg h2 {
-  font-size: 32px;
+  font-family: Nexa;
+  font-size: 40px;
   margin-bottom: 16px;
+}
+@media screen and (max-width: 480px) {
+  .greetings_container .greetings_msg h2 {
+    font-size: 24px;
+  }
 }
 
 .img_container {

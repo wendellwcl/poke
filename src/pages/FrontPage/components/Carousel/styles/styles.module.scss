@@ -1,3 +1,5 @@
+@import "../../../../../styles/partials";
+
 .carousel_container {
     display: flex;
     align-items: center;
@@ -12,7 +14,7 @@
         width: calc(100% + 100px);
         height: 200vh;
         min-height: 1080px;
-        background-color: #b3bf54;
+        background-color: $primary-color;
         transform: skewX(-5deg);
         z-index: -1;
 
@@ -24,6 +26,24 @@
             min-height: auto;
             transform: skewY(5deg);
         }
+    }
+}
+
+@keyframes carouselAnimation {
+    0% {
+        opacity: 0;
+    }
+    3% {
+        opacity: 1;
+    }
+    22% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -47,23 +67,5 @@
                 animation-delay: (($i - 1) * 8s);
             }
         }
-    }
-}
-
-@keyframes carouselAnimation {
-    0% {
-        opacity: 0;
-    }
-    3% {
-        opacity: 1;
-    }
-    22% {
-        opacity: 1;
-    }
-    25% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
     }
 }

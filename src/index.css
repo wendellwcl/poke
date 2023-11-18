@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Nexa;
+    src: url("./assets/fonts/Nexa-Heavy.ttf");
+}
+
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;

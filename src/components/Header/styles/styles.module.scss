@@ -1,16 +1,18 @@
+@import "../../../styles/_partials.scss";
+
 .header {
-    height: 96px;
+    height: $header-height;
     padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: transparent;
-    color: #f1f1f1;
+    color: $light-color-1;
     position: relative;
     z-index: 1;
 
     @media screen and (max-width: 1023px) {
-        background-color: #b3bf54;
+        background-color: $primary-color;
     }
 }
 
@@ -46,11 +48,12 @@
             a {
                 padding: 4px 16px;
                 color: inherit;
+                font-family: $styled-font;
                 font-weight: bold;
                 transition: color 0.2s;
 
                 &:hover {
-                    color: #324373;
+                    color: $secondary-color;
                 }
             }
         }

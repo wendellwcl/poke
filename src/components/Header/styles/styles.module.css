@@ -46,6 +46,7 @@
 .nav ul li a {
   padding: 4px 16px;
   color: inherit;
+  font-family: Nexa;
   font-weight: bold;
   transition: color 0.2s;
 }

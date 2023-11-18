@@ -27,6 +27,23 @@
   }
 }
 
+@keyframes carouselAnimation {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  22% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .carousel {
   width: 100%;
   max-width: 480px;
@@ -53,22 +70,4 @@
 }
 .carousel img:nth-child(4) {
   animation-delay: 24s;
-}
-
-@keyframes carouselAnimation {
-  0% {
-    opacity: 0;
-  }
-  3% {
-    opacity: 1;
-  }
-  22% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
 }/*# sourceMappingURL=styles.module.css.map */

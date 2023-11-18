@@ -1,5 +1,7 @@
+@import "../../../styles/partials";
+
 .frontPage_container {
-    min-height: calc(100vh - 96px);
+    min-height: calc(100vh - $header-height);
     display: flex;
     overflow-x: clip;
 
@@ -10,12 +12,12 @@
 
     a {
         font-weight: bold;
-        color: #324373;
+        color: $secondary-color;
     }
 
     .greetings_container,
     .carousel_container {
-        min-height: calc(100vh - 96px);
+        min-height: calc(100vh - $header-height);
         width: 100%;
         max-width: 50vw;
         padding: 32px;
