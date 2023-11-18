@@ -1,0 +1,69 @@
+.carousel_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 25px;
+        bottom: 0;
+        width: calc(100% + 100px);
+        height: 200vh;
+        min-height: 1080px;
+        background-color: #b3bf54;
+        transform: skewX(-5deg);
+        z-index: -1;
+
+        @media screen and (max-width: 1023px) {
+            left: 0;
+            top: -50px;
+            width: 100%;
+            height: calc(100% + 60px);
+            min-height: auto;
+            transform: skewY(5deg);
+        }
+    }
+}
+
+.carousel {
+    width: 100%;
+    max-width: 480px;
+    max-height: 480px;
+    position: relative;
+    aspect-ratio: 1/1;
+
+    img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        opacity: 0;
+        animation: carouselAnimation 32s linear infinite;
+
+        @for $i from 1 through 4 {
+            &:nth-child(#{$i}) {
+                animation-delay: (($i - 1) * 8s);
+            }
+        }
+    }
+}
+
+@keyframes carouselAnimation {
+    0% {
+        opacity: 0;
+    }
+    3% {
+        opacity: 1;
+    }
+    22% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
