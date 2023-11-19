@@ -35,7 +35,3 @@ a {
 ul {
     list-style: none;
 }
-
-nav.show {
-    visibility: visible !important;
-}
