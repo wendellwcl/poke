@@ -11,8 +11,14 @@
 }
 @media screen and (max-width: 1023px) {
   .header {
-    background-color: #b3bf54;
+    background-color: #b3bf54 !important;
   }
+}
+.header[class*=transparent] {
+  background-color: transparent;
+}
+.header[class*=color] {
+  background-color: #b3bf54;
 }
 
 .logo {

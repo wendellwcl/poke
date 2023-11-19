@@ -12,6 +12,14 @@
     z-index: 10;
 
     @media screen and (max-width: 1023px) {
+        background-color: $primary-color !important;
+    }
+
+    &[class*="transparent"] {
+        background-color: transparent;
+    }
+
+    &[class*="color"] {
         background-color: $primary-color;
     }
 }

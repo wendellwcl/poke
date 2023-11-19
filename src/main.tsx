@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 
+import HeaderBgContextProvider from "./contexts/HeaderBgContext.tsx";
+
 import App from "./App.tsx";
 import FrontPage from "./pages/FrontPage/index.tsx";
 
@@ -35,6 +37,8 @@ const router = createHashRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <HeaderBgContextProvider>
+            <RouterProvider router={router} />
+        </HeaderBgContextProvider>
     </React.StrictMode>
 );

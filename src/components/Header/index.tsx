@@ -1,12 +1,16 @@
-import { useRef, useEffect } from "react";
-import { BsList } from "react-icons/bs";
+import { useRef, useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { BsList } from "react-icons/bs";
+
+import { HeaderBgContext } from "../../contexts/HeaderBgContext";
 
 import styles from "./styles/styles.module.css";
 
 const Header = () => {
     const navRef = useRef<HTMLElement>(null);
     const fadeRef = useRef<HTMLDivElement>(null);
+
+    const { headerBg } = useContext(HeaderBgContext);
 
     function toggleNav() {
         navRef.current!.classList.toggle(styles.show);
@@ -32,7 +36,7 @@ const Header = () => {
 
     return (
         <>
-            <header className={styles.header}>
+            <header className={`${styles.header} ${headerBg}`}>
                 <h1 className={styles.logo}>
                     <NavLink to="/" onClick={closeNav}>
                         <img src="/Pokemon_logo.svg" alt="pokemon logo" />
