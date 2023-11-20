@@ -4,6 +4,8 @@ import { HeaderBgContext } from "../../contexts/HeaderBgContext";
 
 import { IPokemonShort } from "../../Interfaces/interfaces";
 
+import PokedexCard from "./components/PokedexCard";
+
 const Pokedex = () => {
     const { setHeaderBg } = useContext(HeaderBgContext);
 
@@ -46,7 +48,14 @@ const Pokedex = () => {
         };
     }, [pokedexArr, nextEndpoint]);
 
-    return <div>pokedéx</div>;
+    return (
+        <div>
+            {pokedexArr.length > 0 &&
+                pokedexArr.map((pokemon, index) => (
+                    <PokedexCard key={index} pokemon={pokemon} />
+                ))}
+        </div>
+    );
 };
 
 export default Pokedex;
