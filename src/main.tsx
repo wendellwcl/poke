@@ -6,6 +6,7 @@ import HeaderBgContextProvider from "./contexts/HeaderBgContext.tsx";
 
 import App from "./App.tsx";
 import FrontPage from "./pages/FrontPage/index.tsx";
+import Pokedex from "./pages/Pokedex/index.tsx";
 
 import "normalize.css";
 import "./index.css";
@@ -25,7 +26,7 @@ const router = createHashRouter([
             },
             {
                 path: "/pokedex",
-                element: <div>Pokédex</div>,
+                element: <Pokedex />,
             },
             {
                 path: "/sobre",
