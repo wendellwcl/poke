@@ -6,6 +6,8 @@ import { IPokemonShort } from "../../Interfaces/interfaces";
 
 import PokedexCard from "./components/PokedexCard";
 
+import styles from "./styles/styles.module.css";
+
 const Pokedex = () => {
     const { setHeaderBg } = useContext(HeaderBgContext);
 
@@ -26,12 +28,12 @@ const Pokedex = () => {
     }, []);
 
     useEffect(() => {
-        function fetchIfArrivedAtBottom() {
+        async function fetchIfArrivedAtBottom() {
             const scrollValue = window.scrollY + window.innerHeight;
             const scrollLimit = document.body.scrollHeight;
 
-            if (scrollValue === scrollLimit && nextEndpoint) {
-                fetch(nextEndpoint)
+            if (scrollValue >= scrollLimit && nextEndpoint) {
+                await fetch(nextEndpoint)
                     .then((res) => res.json())
                     .then((res) => {
                         setPokedexArr((prev) => [...prev, ...res.results]);
@@ -40,20 +42,21 @@ const Pokedex = () => {
             }
         }
 
-        window.removeEventListener("wheel", fetchIfArrivedAtBottom);
-        window.addEventListener("wheel", fetchIfArrivedAtBottom);
+        window.addEventListener("scroll", fetchIfArrivedAtBottom);
 
         return () => {
-            window.removeEventListener("wheel", fetchIfArrivedAtBottom);
+            window.removeEventListener("scroll", fetchIfArrivedAtBottom);
         };
     }, [pokedexArr, nextEndpoint]);
 
     return (
         <div>
-            {pokedexArr.length > 0 &&
-                pokedexArr.map((pokemon, index) => (
-                    <PokedexCard key={index} pokemon={pokemon} />
-                ))}
+            <div className={styles.pokedex_container}>
+                {pokedexArr.length > 0 &&
+                    pokedexArr.map((pokemon, index) => (
+                        <PokedexCard key={index} pokemon={pokemon} />
+                    ))}
+            </div>
         </div>
     );
 };
