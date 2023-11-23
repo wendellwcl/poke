@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { BsChevronRight } from "react-icons/bs";
+
+import imgLoadingPlaceholder from "../../../../utils/imgLoadingPlaceholder";
 
 import { IPokemonShort, IPokemon } from "../../../../Interfaces/interfaces";
 
 import styles from "./styles/styles.module.css";
-import { Link } from "react-router-dom";
 
 interface Props {
     pokemon: IPokemonShort;
@@ -24,12 +26,19 @@ const PokedexCard = ({ pokemon }: Props) => {
             {pokemonData && (
                 <Link to="/" className={styles.card_container}>
                     <div className={styles.img_container}>
+                        <div className="loading_placeholder"></div>
                         <img
                             src={
                                 pokemonData.sprites.other["official-artwork"]
                                     .front_default
                             }
                             alt={pokemonData.name}
+                            onLoad={(e) =>
+                                imgLoadingPlaceholder(e.currentTarget)
+                            }
+                            onError={(e) =>
+                                imgLoadingPlaceholder(e.currentTarget)
+                            }
                         />
                     </div>
                     <div className={styles.body_container}>
