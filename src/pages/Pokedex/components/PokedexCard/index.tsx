@@ -6,6 +6,8 @@ import imgLoadingPlaceholder from "../../../../utils/imgLoadingPlaceholder";
 
 import { IPokemonShort, IPokemon } from "../../../../Interfaces/interfaces";
 
+import pokeball from "../../../../assets/svg/ball.svg";
+
 import styles from "./styles/styles.module.css";
 
 interface Props {
@@ -30,12 +32,12 @@ const PokedexCard = ({ pokemon }: Props) => {
                         <img
                             src={
                                 pokemonData.sprites.other["official-artwork"]
-                                    .front_default
+                                    .front_default || pokeball
                             }
                             alt={pokemonData.name}
-                            onLoad={(e) =>
-                                imgLoadingPlaceholder(e.currentTarget)
-                            }
+                            onLoad={(e) => {
+                                imgLoadingPlaceholder(e.currentTarget);
+                            }}
                             onError={(e) =>
                                 imgLoadingPlaceholder(e.currentTarget)
                             }
