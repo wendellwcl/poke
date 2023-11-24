@@ -69,11 +69,7 @@ const Pokedex = () => {
         <div className={styles.pokedex_container}>
             {loading ? (
                 <div className={styles.loading_container}>
-                    <img
-                        src={pokeball}
-                        className={styles.loading_img}
-                        alt="Carregando"
-                    />
+                    <img src={pokeball} className={styles.loading_img} />
                 </div>
             ) : (
                 <>
@@ -84,11 +80,7 @@ const Pokedex = () => {
                             ))}
                     </div>
                     <div className={styles.loading} ref={loadingRef}>
-                        <img
-                            src={pokeball}
-                            className={styles.loading_img}
-                            alt="Carregando"
-                        />
+                        <img src={pokeball} className={styles.loading_img} />
                     </div>
                 </>
             )}
