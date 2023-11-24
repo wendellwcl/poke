@@ -50,10 +50,6 @@ const Pokedex = () => {
                         setPokedexArr((prev) => [...prev, ...res.results]);
                         setNextEndpoint(res.next);
                         loadingRef.current!.style.display = "none";
-
-                        if (res.next === null) {
-                            loadingRef.current!.remove();
-                        }
                     });
             }
         }
