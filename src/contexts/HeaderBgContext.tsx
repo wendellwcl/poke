@@ -1,3 +1,7 @@
+//This Context is responsible for controlling the background of the Header component according to the needs of each page
+//'transparent' sets the Header background tranparent
+//'color' sets the Header background as its default color
+
 import { createContext, useState } from "react";
 
 interface Props {

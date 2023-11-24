@@ -2,8 +2,10 @@ import { useRef, useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { BsList } from "react-icons/bs";
 
+//Contexts
 import { HeaderBgContext } from "../../contexts/HeaderBgContext";
 
+//Styles
 import styles from "./styles/styles.module.css";
 
 const Header = () => {
@@ -12,16 +14,20 @@ const Header = () => {
 
     const { headerBg } = useContext(HeaderBgContext);
 
+    //Toggle nav display (mobile)
     function toggleNav() {
         navRef.current!.classList.toggle(styles.show);
         fadeRef.current!.classList.toggle(styles.show);
     }
 
+    //Close nav
     function closeNav() {
         navRef.current!.classList.remove(styles.show);
         fadeRef.current!.classList.remove(styles.show);
     }
 
+    //Close nav on window resize
+    //Without this function the 'fade' element may appear in an unwanted way
     useEffect(() => {
         function handleCloseNav() {
             if (window.innerWidth >= 767) {
@@ -31,6 +37,7 @@ const Header = () => {
 
         window.addEventListener("resize", handleCloseNav);
 
+        //Clean up function
         return () => window.removeEventListener("resize", handleCloseNav);
     }, []);
 

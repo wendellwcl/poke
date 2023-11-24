@@ -1,9 +1,12 @@
 //Instructions for use
-//1.This function must be assigned to the onLoad and onError events of the "<img>" tag
-//2.This function must receive the target element that invokes it as a parameter (e.currentTarget)
-//3.The "<img>" element that will receive this function must have "display: none" as default
-//4.A "<div>" element with the "loading_placeholder" class must be inserted before the "<img>" element
 
+//1.This function must be assigned to the onLoad and onError events of the "<img>" tag
+
+//2.This function must receive the target element that invokes it as a parameter (e.currentTarget)
+
+//3.The "<img>" element that will receive this function must have "display: none" as default
+
+//4.A "<div>" element with the "loading_placeholder" class must be inserted before the "<img>" element
 // .loading_placeholder {
 //   width: 100%;
 //   height: 100%;
@@ -30,8 +33,10 @@
 //   }
 // }
 
-//5.The "<img>" and "<div>" elements must be inside a parent element that will serve exclusively as a container
+//5.The "<img>" and "<div class='loading_placeholder'>" elements must be inside a parent element that will serve exclusively as a container
+
 //6.The container / parent element must have CSS rules that establish the desired width and height for the "<img>" element
+
 //7.The container / parent element must have CSS rules to center its content
 
 function imgLoadingPlaceholder(imgEl: HTMLImageElement) {

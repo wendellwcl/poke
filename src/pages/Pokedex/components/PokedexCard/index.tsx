@@ -2,12 +2,16 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BsChevronRight } from "react-icons/bs";
 
+//Utils
 import imgLoadingPlaceholder from "../../../../utils/imgLoadingPlaceholder";
 
+//Interfaces
 import { IPokemonShort, IPokemon } from "../../../../Interfaces/interfaces";
 
+//Assets
 import pokeball from "../../../../assets/svg/ball.svg";
 
+//Styles
 import styles from "./styles/styles.module.css";
 
 interface Props {
@@ -17,6 +21,7 @@ interface Props {
 const PokedexCard = ({ pokemon }: Props) => {
     const [pokemonData, setPokemonData] = useState<IPokemon>();
 
+    //Fetching data
     useEffect(() => {
         fetch(pokemon.url)
             .then((res) => res.json())

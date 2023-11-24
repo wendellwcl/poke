@@ -1,13 +1,18 @@
 import { useEffect, useContext, useState, useRef } from "react";
 
+//Contexts
 import { HeaderBgContext } from "../../contexts/HeaderBgContext";
 
-import { IPokemonShort } from "../../Interfaces/interfaces";
-
+//Components
 import PokedexCard from "./components/PokedexCard";
 
+//Interfaces
+import { IPokemonShort } from "../../Interfaces/interfaces";
+
+//Assets
 import pokeball from "../../assets/svg/ball.svg";
 
+//Styles
 import styles from "./styles/styles.module.css";
 
 const Pokedex = () => {
@@ -17,13 +22,14 @@ const Pokedex = () => {
 
     const [pokedexArr, setPokedexArr] = useState<IPokemonShort[]>([]);
     const [nextEndpoint, setNextEndpoint] = useState<string | null>(null);
-
     const [loading, setLoading] = useState<boolean>(true);
 
+    //Changing Header background
     useEffect(() => {
         setHeaderBg("color");
     }, []);
 
+    //Fetching first data
     useEffect(() => {
         fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=20")
             .then((res) => res.json())
@@ -34,7 +40,9 @@ const Pokedex = () => {
             });
     }, []);
 
+    //Automatic fetching data when the page is scrolled to the end
     useEffect(() => {
+        //Function to fetch new data when the page is scrolled to the end
         async function fetchIfArrivedAtBottom() {
             const scrollValue = window.scrollY + window.innerHeight;
             const scrollLimit = document.body.scrollHeight;
@@ -54,8 +62,11 @@ const Pokedex = () => {
             }
         }
 
+        //Adding the function at window
+        //For correct operation, the function will be re-added / updated according to the dependency array
         window.addEventListener("scroll", fetchIfArrivedAtBottom);
 
+        //Clean up function
         return () => {
             window.removeEventListener("scroll", fetchIfArrivedAtBottom);
         };

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
+//Interfaces
 import { IPokemon } from "../../../../Interfaces/interfaces";
 
+//Styles
 import styles from "./styles/styles.module.css";
 
 interface Props {
@@ -11,6 +13,7 @@ interface Props {
 const Carousel = ({ myClassName }: Props) => {
     const [pokemonCarousel, setPokemonCarousel] = useState<IPokemon[]>([]);
 
+    //Fetching data
     useEffect(() => {
         const pokemonsIdArr: number[] = [1, 4, 7, 25];
         const carouselArr = [];
