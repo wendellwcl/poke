@@ -1,0 +1,11 @@
+@import "../../../styles/partials";
+
+.about_container {
+    height: calc(100vh - $header-height);
+    background-color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}

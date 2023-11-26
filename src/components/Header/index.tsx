@@ -62,7 +62,7 @@ const Header = () => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/sobre" onClick={closeNav}>
+                            <NavLink to="/about" onClick={closeNav}>
                                 Sobre
                             </NavLink>
                         </li>

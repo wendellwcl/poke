@@ -1,0 +1,27 @@
+.about_item_container {
+  font-family: Nexa;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #f1f1f1;
+}
+@media screen and (max-width: 480px) {
+  .about_item_container {
+    font-size: 16px;
+  }
+}
+.about_item_container a {
+  color: #324373;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.about_item_container a img {
+  width: 20px;
+}
+@media screen and (max-width: 480px) {
+  .about_item_container a img {
+    width: 16px;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

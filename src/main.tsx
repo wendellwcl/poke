@@ -5,10 +5,11 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 //Contexts
 import HeaderBgContextProvider from "./contexts/HeaderBgContext.tsx";
 
-//Components
+//Pages
 import App from "./App.tsx";
 import FrontPage from "./pages/FrontPage/index.tsx";
 import Pokedex from "./pages/Pokedex/index.tsx";
+import About from "./pages/About/index.tsx";
 
 //Styles
 import "normalize.css";
@@ -32,8 +33,8 @@ const router = createHashRouter([
                 element: <Pokedex />,
             },
             {
-                path: "/sobre",
-                element: <div>Sobre</div>,
+                path: "/about",
+                element: <About />,
             },
         ],
     },
