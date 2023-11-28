@@ -3,6 +3,7 @@ import { BsSearch } from "react-icons/bs";
 
 //Contexts
 import { HeaderBgContext } from "../../contexts/HeaderBgContext";
+import { PokemonListContext } from "../../contexts/PokemonListContext";
 
 //Components
 import PokedexCard from "./components/PokedexCard";
@@ -18,6 +19,7 @@ import styles from "./styles/styles.module.css";
 
 const Pokedex = () => {
     const { setHeaderBg } = useContext(HeaderBgContext);
+    const { pokemonList } = useContext(PokemonListContext);
 
     const loadingRef = useRef<HTMLDivElement>(null);
 
@@ -127,7 +129,16 @@ const Pokedex = () => {
                                             e.currentTarget.value
                                         )
                                     }
+                                    list="pokemonNames"
                                 />
+                                <datalist id="pokemonNames">
+                                    {pokemonList.map((pokemon) => (
+                                        <option
+                                            value={pokemon.name}
+                                            key={pokemon.name}
+                                        />
+                                    ))}
+                                </datalist>
                                 <button type="submit">
                                     <BsSearch />
                                 </button>
