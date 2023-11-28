@@ -24,7 +24,7 @@ const PokedexCard = ({ pokemon }: Props) => {
         fetch(pokemon.url)
             .then((res) => res.json())
             .then((res) => setPokemonData(res));
-    }, []);
+    }, [pokemon]);
 
     return (
         <>

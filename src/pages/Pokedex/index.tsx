@@ -1,4 +1,5 @@
-import { useEffect, useContext, useState, useRef } from "react";
+import { useEffect, useContext, useState, useRef, FormEvent } from "react";
+import { BsSearch } from "react-icons/bs";
 
 //Contexts
 import { HeaderBgContext } from "../../contexts/HeaderBgContext";
@@ -23,6 +24,40 @@ const Pokedex = () => {
     const [pokedexArr, setPokedexArr] = useState<IPokemonShort[]>([]);
     const [nextEndpoint, setNextEndpoint] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
+    const [searchInputValue, setSearchInputValue] = useState<string>("");
+
+    async function handleSearch(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+
+        if (searchInputValue != "") {
+            setLoading(true);
+
+            await fetch(
+                `https://pokeapi.co/api/v2/pokemon/${searchInputValue}/`
+            )
+                .then((res) => {
+                    if (res.status != 200) {
+                        throw "Sem resultados";
+                    }
+                    return res.json();
+                })
+                .then((res) =>
+                    setPokedexArr([
+                        {
+                            name: res.name,
+                            url: `https://pokeapi.co/api/v2/pokemon/${res.id}/`,
+                        },
+                    ])
+                )
+                .catch((err) => {
+                    setPokedexArr([]);
+                    setLoading(false);
+                    throw new Error(err);
+                });
+
+            setLoading(false);
+        }
+    }
 
     //Changing Header background
     useEffect(() => {
@@ -80,11 +115,33 @@ const Pokedex = () => {
                 </div>
             ) : (
                 <>
+                    <div className={styles.search_bar}>
+                        <form onSubmit={(e) => handleSearch(e)}>
+                            <div className={styles.search_input}>
+                                <input
+                                    type="text"
+                                    placeholder="Buscar Pokémon"
+                                    value={searchInputValue}
+                                    onChange={(e) =>
+                                        setSearchInputValue(
+                                            e.currentTarget.value
+                                        )
+                                    }
+                                />
+                                <button type="submit">
+                                    <BsSearch />
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                     <div className={styles.pokedex_grid}>
-                        {pokedexArr.length > 0 &&
+                        {pokedexArr.length > 0 ? (
                             pokedexArr.map((pokemon, index) => (
                                 <PokedexCard key={index} pokemon={pokemon} />
-                            ))}
+                            ))
+                        ) : (
+                            <span>Sem resultados</span>
+                        )}
                     </div>
                     <div className={styles.loading} ref={loadingRef}>
                         <img src={pokeball} className={styles.loading_img} />
