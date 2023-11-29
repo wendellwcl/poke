@@ -1,0 +1,29 @@
+@import "../../../styles/partials";
+
+.loading_container {
+    min-height: calc(100vh - $header-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading_img {
+    display: block;
+    height: 50px;
+    animation: loading-animation 1s linear infinite;
+    aspect-ratio: 1/1;
+
+    @media screen and (max-width: 480px) {
+        height: 30px;
+    }
+}
+
+@keyframes loading-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

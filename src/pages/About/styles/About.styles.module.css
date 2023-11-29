@@ -1,0 +1,9 @@
+.about_container {
+  height: calc(100vh - 96px);
+  background-color: #b3bf54;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}/*# sourceMappingURL=About.styles.module.css.map */

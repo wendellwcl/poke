@@ -9,12 +9,10 @@ interface Props {
 
 interface IPokemonListContextValue {
     pokemonList: IPokemonShort[];
-    setPokemonList: React.Dispatch<React.SetStateAction<IPokemonShort[]>>;
 }
 
 export const PokemonListContext = createContext<IPokemonListContextValue>({
     pokemonList: [],
-    setPokemonList: () => {},
 });
 
 const PokemonListContextProvider = ({ children }: Props) => {
@@ -28,7 +26,6 @@ const PokemonListContextProvider = ({ children }: Props) => {
 
     const contextValue = {
         pokemonList,
-        setPokemonList,
     };
 
     return (

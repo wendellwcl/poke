@@ -8,9 +8,9 @@ import PokemonListContextProvider from "./contexts/PokemonListContext.tsx";
 
 //Pages
 import App from "./App.tsx";
-import FrontPage from "./pages/FrontPage/index.tsx";
-import Pokedex from "./pages/Pokedex/index.tsx";
-import About from "./pages/About/index.tsx";
+import FrontPage from "./pages/FrontPage/FrontPage.tsx";
+import Pokedex from "./pages/Pokedex/Pokedex.tsx";
+import About from "./pages/About/About.tsx";
 
 //Styles
 import "normalize.css";
