@@ -1,6 +1,8 @@
 .frontPage_container {
   min-height: calc(100vh - 96px);
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
   overflow-x: clip;
 }
 @media screen and (max-width: 1023px) {
@@ -22,6 +24,9 @@
     max-width: 100%;
     min-height: auto;
   }
+}
+.frontPage_container [class*=right_container] {
+  position: relative;
 }
 .frontPage_container [class*=right_container]:before {
   content: "";
