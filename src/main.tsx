@@ -9,6 +9,7 @@ import PokemonListContextProvider from "./contexts/PokemonListContext.tsx";
 //Pages
 import App from "./App.tsx";
 import FrontPage from "./pages/FrontPage/FrontPage.tsx";
+import Game from "./pages/Game/Game.tsx";
 import Pokedex from "./pages/Pokedex/Pokedex.tsx";
 import About from "./pages/About/About.tsx";
 
@@ -27,7 +28,7 @@ const router = createHashRouter([
             },
             {
                 path: "/game",
-                element: <div>Quem é esse Pokémon ?</div>,
+                element: <Game />,
             },
             {
                 path: "/pokedex",

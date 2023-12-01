@@ -1,0 +1,52 @@
+.game_container {
+  min-height: calc(100vh - 96px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow-x: clip;
+}
+@media screen and (max-width: 1023px) {
+  .game_container {
+    flex-direction: column-reverse;
+    overflow-y: clip;
+  }
+}
+.game_container [class*=left_container],
+.game_container [class*=right_container] {
+  min-height: calc(100vh - 96px);
+  width: 100%;
+  max-width: 50vw;
+  padding: 32px;
+}
+@media screen and (max-width: 1023px) {
+  .game_container [class*=left_container],
+  .game_container [class*=right_container] {
+    max-width: 100%;
+    min-height: auto;
+  }
+}
+.game_container [class*=right_container] {
+  position: relative;
+}
+.game_container [class*=right_container]:before {
+  content: "";
+  position: absolute;
+  left: 25px;
+  bottom: 0;
+  width: calc(100% + 100px);
+  height: 200vh;
+  min-height: 1080px;
+  background-color: #b3bf54;
+  transform: skewX(-5deg);
+  z-index: -1;
+}
+@media screen and (max-width: 1023px) {
+  .game_container [class*=right_container]:before {
+    left: 0;
+    top: -50px;
+    width: 100%;
+    height: calc(100% + 60px);
+    min-height: auto;
+    transform: skewY(5deg);
+  }
+}/*# sourceMappingURL=Game.styles.module.css.map */
