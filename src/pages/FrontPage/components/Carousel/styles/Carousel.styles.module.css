@@ -4,28 +4,6 @@
   justify-content: center;
   position: relative;
 }
-.carousel_container:before {
-  content: "";
-  position: absolute;
-  left: 25px;
-  bottom: 0;
-  width: calc(100% + 100px);
-  height: 200vh;
-  min-height: 1080px;
-  background-color: #b3bf54;
-  transform: skewX(-5deg);
-  z-index: -1;
-}
-@media screen and (max-width: 1023px) {
-  .carousel_container:before {
-    left: 0;
-    top: -50px;
-    width: 100%;
-    height: calc(100% + 60px);
-    min-height: auto;
-    transform: skewY(5deg);
-  }
-}
 
 @keyframes carouselAnimation {
   0% {

@@ -20,8 +20,8 @@ const FrontPage = () => {
 
     return (
         <section className={styles.frontPage_container}>
-            <Greetings myClassName={styles.greetings_container} />
-            <Carousel myClassName={styles.carousel_container} />
+            <Greetings myClassName={"left_container"} />
+            <Carousel myClassName={"right_container"} />
         </section>
     );
 };

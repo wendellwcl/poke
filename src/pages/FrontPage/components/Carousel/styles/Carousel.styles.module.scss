@@ -5,28 +5,6 @@
     align-items: center;
     justify-content: center;
     position: relative;
-
-    &:before {
-        content: "";
-        position: absolute;
-        left: 25px;
-        bottom: 0;
-        width: calc(100% + 100px);
-        height: 200vh;
-        min-height: 1080px;
-        background-color: $primary-color;
-        transform: skewX(-5deg);
-        z-index: -1;
-
-        @media screen and (max-width: 1023px) {
-            left: 0;
-            top: -50px;
-            width: 100%;
-            height: calc(100% + 60px);
-            min-height: auto;
-            transform: skewY(5deg);
-        }
-    }
 }
 
 @keyframes carouselAnimation {
