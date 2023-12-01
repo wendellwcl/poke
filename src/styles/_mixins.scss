@@ -1,6 +1,10 @@
+@import "./partials";
+
 @mixin splitScreenLayout {
     min-height: calc(100vh - $header-height);
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
     overflow-x: clip;
 
     @media screen and (max-width: 1023px) {
@@ -22,6 +26,8 @@
     }
 
     [class*="right_container"] {
+        position: relative;
+
         &:before {
             content: "";
             position: absolute;
