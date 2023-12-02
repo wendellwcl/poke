@@ -4,7 +4,7 @@ import { createContext, useState, useEffect } from "react";
 import { IGeneration } from "../../Interfaces/interfaces";
 
 //Functions
-import fetchGenerations from "./functions/FetchGenerations";
+import fetchGenerations from "./functions/fetchGenerations";
 
 interface Props {
     children: React.ReactNode;
@@ -37,7 +37,7 @@ const GameContextProvider = ({ children }: Props) => {
         fetchGenerations(handleSetLoading, handleSetGenerationsList);
     }, []);
 
-    const contextValue = {
+    const contextValue: IGameContextValue = {
         generationsList,
         loading,
     };
