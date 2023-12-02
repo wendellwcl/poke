@@ -23,6 +23,7 @@ const GenerationModalBody = () => {
                         text={`Geração ${index + 1}`}
                         checkboxId={generation.name}
                         defaultChecked={generation.selected}
+                        toggleChecked={generation.toggleSelected}
                         key={index}
                     />
                 ))}

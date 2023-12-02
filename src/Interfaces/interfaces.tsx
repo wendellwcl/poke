@@ -15,4 +15,5 @@ export interface IGeneration {
     url: string;
     species: IPokemonShort[];
     selected: boolean;
+    toggleSelected: () => void;
 }

@@ -12,6 +12,10 @@ class Generation {
         this.species = species;
         this.selected = selected;
     }
+
+    public toggleSelected = () => {
+        this.selected = !this.selected;
+    };
 }
 
 async function fetchGenerations(
