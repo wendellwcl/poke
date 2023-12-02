@@ -26,6 +26,10 @@ async function fetchGenerations(
 
     const temporaryArray: IGeneration[] = [];
 
+    function checkDuplicate(generation: IGeneration, newGeneration: string) {
+        return generation.name === newGeneration;
+    }
+
     //1. Fetch Generations
     const generations = await fetch("https://pokeapi.co/api/v2/generation/")
         .then((res) => res.json())
@@ -63,10 +67,6 @@ async function fetchGenerations(
         handleSetGenerationsList(temporaryArray);
         handleSetLoading(false);
     });
-}
-
-function checkDuplicate(generation: IGeneration, newGeneration: string) {
-    return generation.name === newGeneration;
 }
 
 export default fetchGenerations;
