@@ -9,3 +9,10 @@ export interface IPokemonShort {
     name: string;
     url: string;
 }
+
+export interface IGeneration {
+    name: string;
+    url: string;
+    species: IPokemonShort[];
+    selected: boolean;
+}
