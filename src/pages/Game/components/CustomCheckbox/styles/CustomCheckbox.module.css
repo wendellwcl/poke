@@ -1,0 +1,29 @@
+.checkbox_container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.checkbox_container:hover .checkmark {
+  background-color: #b3bf54;
+}
+.checkbox_container input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+.checkbox_container input:checked ~ .checkmark {
+  background: url("../../../../../assets/svg/ball.svg") no-repeat center;
+}
+.checkbox_container .checkmark {
+  display: block;
+  width: 25px;
+  height: 25px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+}/*# sourceMappingURL=CustomCheckbox.module.css.map */
