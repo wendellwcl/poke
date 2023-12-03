@@ -1,34 +1,67 @@
 import { useEffect, useContext } from "react";
 
+//Components
+import Modal from "./components/Modal/Modal";
+import GenerationModalBody from "./components/GenerationModalBody/GenerationModalBody";
+import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
+
 //Contexts
+import { GameContetx } from "../../contexts/GameContext/GameContext";
 import { HeaderBgContext } from "../../contexts/HeaderBgContext";
+
+//Utils
+import openModal from "../../utils/openModal";
 
 //Styles
 import styles from "./styles/Game.styles.module.css";
 
 const Game = () => {
     const { setHeaderBg } = useContext(HeaderBgContext);
+    const { generationsList, loading, handleStart, pokemon } =
+        useContext(GameContetx);
 
     //Changing Header background
     useEffect(() => {
         setHeaderBg("transparent");
     }, []);
 
+    //Start the Game
+    useEffect(() => {
+        if (!loading) {
+            handleStart();
+        }
+    }, [generationsList]);
+
     return (
-        <div className={styles.game_container}>
-            <div className="left_container">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. A,
-                nesciunt. Deleniti, hic esse blanditiis facere fugiat debitis
-                aut sunt voluptatibus adipisci exercitationem numquam
-                doloremque, placeat corrupti rem distinctio quisquam quaerat.
-            </div>
-            <div className="right_container">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-                mollitia reprehenderit aperiam distinctio numquam iste, ut
-                provident doloribus quia atque tenetur nam excepturi esse
-                dignissimos qui earum, accusantium at sint!
-            </div>
-        </div>
+        <>
+            {loading ? (
+                <LoadingScreen />
+            ) : (
+                <div className={styles.game_container}>
+                    <div className="left_container">
+                        {pokemon && <div>{pokemon.name}</div>}
+
+                        <button onClick={() => openModal("generations-modal")}>
+                            Abrir
+                        </button>
+                        <button onClick={() => handleStart()}>Jogar</button>
+                    </div>
+                    <div className="right_container">
+                        {pokemon && (
+                            <img
+                                src={
+                                    pokemon.sprites.other["official-artwork"]
+                                        .front_default
+                                }
+                            />
+                        )}
+                    </div>
+                    <Modal title="Gerações" modalId="generations-modal">
+                        <GenerationModalBody />
+                    </Modal>
+                </div>
+            )}
+        </>
     );
 };
 

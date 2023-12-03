@@ -21,9 +21,7 @@ const GenerationModalBody = () => {
                 {generationsList.map((generation, index) => (
                     <CustomCheckbox
                         text={`Geração ${index + 1}`}
-                        checkboxId={generation.name}
-                        defaultChecked={generation.selected}
-                        toggleChecked={generation.toggleSelected}
+                        generation={generation}
                         key={index}
                     />
                 ))}
