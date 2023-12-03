@@ -1,0 +1,21 @@
+@import "../../../../../styles/partials";
+
+.pokemon_display_container {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 1/1;
+    position: relative;
+
+    img {
+        display: block;
+        width: 100%;
+        filter: brightness(0);
+        transition: all 0.5s;
+    }
+
+    &[class*="show"] {
+        img {
+            filter: brightness(1);
+        }
+    }
+}

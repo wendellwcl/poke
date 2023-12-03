@@ -27,6 +27,9 @@
 }
 .frontPage_container [class*=right_container] {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .frontPage_container [class*=right_container]:before {
   content: "";

@@ -1,9 +1,10 @@
 import { useEffect, useContext } from "react";
 
 //Components
+import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
+import PokemonDisplay from "./components/PokemonDisplay/PokemonDisplay";
 import Modal from "./components/Modal/Modal";
 import GenerationModalBody from "./components/GenerationModalBody/GenerationModalBody";
-import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 
 //Contexts
 import { GameContetx } from "../../contexts/GameContext/GameContext";
@@ -34,7 +35,7 @@ const Game = () => {
 
     return (
         <>
-            {loading ? (
+            {loading || !pokemon ? (
                 <LoadingScreen />
             ) : (
                 <div className={styles.game_container}>
@@ -47,14 +48,7 @@ const Game = () => {
                         <button onClick={() => handleStart()}>Jogar</button>
                     </div>
                     <div className="right_container">
-                        {pokemon && (
-                            <img
-                                src={
-                                    pokemon.sprites.other["official-artwork"]
-                                        .front_default
-                                }
-                            />
-                        )}
+                        <PokemonDisplay pokemon={pokemon} />
                     </div>
                     <Modal title="Gerações" modalId="generations-modal">
                         <GenerationModalBody />

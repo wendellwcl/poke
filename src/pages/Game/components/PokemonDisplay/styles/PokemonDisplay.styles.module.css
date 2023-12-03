@@ -1,0 +1,15 @@
+.pokemon_display_container {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1/1;
+  position: relative;
+}
+.pokemon_display_container img {
+  display: block;
+  width: 100%;
+  filter: brightness(0);
+  transition: all 0.5s;
+}
+.pokemon_display_container[class*=show] img {
+  filter: brightness(1);
+}/*# sourceMappingURL=PokemonDisplay.styles.module.css.map */
