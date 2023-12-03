@@ -13,7 +13,7 @@ interface Props {
 
 const PokemonDisplay = ({ pokemon }: Props) => {
     return (
-        <div className={styles.pokemon_display_container}>
+        <div className={styles.pokemon_display_container} id="pokemon-display">
             <div className="loading_placeholder"></div>
             <img
                 src={pokemon.sprites.other["official-artwork"].front_default}

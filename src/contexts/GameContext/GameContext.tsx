@@ -14,15 +14,17 @@ interface Props {
 interface IGameContextValue {
     generationsList: IGeneration[];
     loading: boolean;
-    handleStart: () => void;
     pokemon: IPokemon | null;
+    handleStart: () => void;
+    handleGuessPokemon: (guess: string) => void;
 }
 
 export const GameContetx = createContext<IGameContextValue>({
     generationsList: [],
     loading: true,
-    handleStart: () => {},
     pokemon: null,
+    handleStart: () => {},
+    handleGuessPokemon: () => {},
 });
 
 const GameContextProvider = ({ children }: Props) => {
@@ -50,16 +52,31 @@ const GameContextProvider = ({ children }: Props) => {
         }, 1000);
     };
 
+    const handleGuessPokemon = (guess: string) => {
+        const result = pokemon!.name === guess ? true : false;
+
+        if (result) {
+            document.querySelector("#pokemon-display")!.classList.add("show");
+            (
+                document.querySelector("#draw-anohter-btn") as HTMLButtonElement
+            ).focus();
+        } else {
+            const wrongAnswerEvent = new Event("wrongAnswer");
+            window.dispatchEvent(wrongAnswerEvent);
+        }
+    };
+
+    //1. Fetch Generations Data
     useEffect(() => {
-        //1. Fetch Generations Data
         fetchGenerations(handleSetLoading, handleSetGenerationsList);
     }, []);
 
     const contextValue: IGameContextValue = {
         generationsList,
         loading,
-        handleStart,
         pokemon,
+        handleStart,
+        handleGuessPokemon,
     };
 
     return (

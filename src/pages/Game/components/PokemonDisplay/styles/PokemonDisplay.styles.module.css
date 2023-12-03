@@ -4,6 +4,11 @@
   aspect-ratio: 1/1;
   position: relative;
 }
+@media screen and (max-width: 1024px) {
+  .pokemon_display_container {
+    width: 320px;
+  }
+}
 .pokemon_display_container img {
   display: block;
   width: 100%;

@@ -3,15 +3,13 @@ import { useEffect, useContext } from "react";
 //Components
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import PokemonDisplay from "./components/PokemonDisplay/PokemonDisplay";
+import GameInterface from "./components/GameInterface/GameInterface";
 import Modal from "./components/Modal/Modal";
 import GenerationModalBody from "./components/GenerationModalBody/GenerationModalBody";
 
 //Contexts
 import { GameContetx } from "../../contexts/GameContext/GameContext";
 import { HeaderBgContext } from "../../contexts/HeaderBgContext";
-
-//Utils
-import openModal from "../../utils/openModal";
 
 //Styles
 import styles from "./styles/Game.styles.module.css";
@@ -40,12 +38,7 @@ const Game = () => {
             ) : (
                 <div className={styles.game_container}>
                     <div className="left_container">
-                        {pokemon && <div>{pokemon.name}</div>}
-
-                        <button onClick={() => openModal("generations-modal")}>
-                            Abrir
-                        </button>
-                        <button onClick={() => handleStart()}>Jogar</button>
+                        <GameInterface />
                     </div>
                     <div className="right_container">
                         <PokemonDisplay pokemon={pokemon} />

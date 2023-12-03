@@ -1,0 +1,67 @@
+.game_interface_container {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game_input {
+  width: 100%;
+  margin-bottom: 16px;
+}
+.game_input span {
+  display: block;
+  text-align: center;
+  font-family: Nexa;
+  font-size: 20px;
+  font-weight: bold;
+  color: #324373;
+  margin-bottom: 4px;
+}
+
+.btn_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+}
+.btn_container .hint_container {
+  grid-column: 1/span 2;
+  position: relative;
+}
+.btn_container .hint_container button {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+}
+.btn_container .hint_container .hint {
+  display: block;
+  position: absolute;
+  inset: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #324373;
+  z-index: 1;
+  display: none;
+}
+.btn_container button {
+  background-color: #b3bf54;
+  color: #f1f1f1;
+  font-weight: bold;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+  width: 100%;
+}
+.btn_container button:hover {
+  color: #324373;
+}
+.btn_container button:focus {
+  color: #324373;
+  box-shadow: 0 0 0 3px #324373;
+}/*# sourceMappingURL=GameInterface.styles.module.css.map */

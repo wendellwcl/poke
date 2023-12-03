@@ -1,0 +1,61 @@
+@import "../../../../../styles/partials";
+@import "../../../../../styles/mixins";
+
+.game_interface_container {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.game_input {
+    width: 100%;
+    margin-bottom: 16px;
+
+    span {
+        display: block;
+        text-align: center;
+        font-family: $styled-font;
+        font-size: 20px;
+        font-weight: bold;
+        color: $secondary-color;
+        margin-bottom: 4px;
+    }
+}
+
+.btn_container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+
+    .hint_container {
+        grid-column: 1 / span 2;
+        position: relative;
+
+        button {
+            position: absolute;
+            inset: 0;
+            z-index: 9;
+        }
+
+        .hint {
+            display: block;
+            position: absolute;
+            inset: 0;
+            font-size: 20px;
+            font-weight: bold;
+            color: $secondary-color;
+            z-index: 1;
+            display: none;
+        }
+    }
+
+    button {
+        @include btn_default;
+        width: 100%;
+    }
+}

@@ -18,6 +18,9 @@
         width: 100%;
         max-width: 50vw;
         padding: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         @media screen and (max-width: 1023px) {
             max-width: 100%;
@@ -27,9 +30,6 @@
 
     [class*="right_container"] {
         position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
         &:before {
             content: "";
@@ -52,5 +52,25 @@
                 transform: skewY(5deg);
             }
         }
+    }
+}
+
+@mixin btn_default {
+    background-color: $primary-color;
+    color: $light-color-1;
+    font-weight: bold;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        color: $secondary-color;
+    }
+
+    &:focus {
+        color: $secondary-color;
+        box-shadow: 0 0 0 3px $secondary-color;
     }
 }

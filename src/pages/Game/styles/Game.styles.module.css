@@ -17,6 +17,9 @@
   width: 100%;
   max-width: 50vw;
   padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media screen and (max-width: 1023px) {
   .game_container [class*=left_container],
@@ -27,9 +30,6 @@
 }
 .game_container [class*=right_container] {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .game_container [class*=right_container]:before {
   content: "";
