@@ -2,6 +2,9 @@ import { useRef, useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { BsList } from "react-icons/bs";
 
+//Assets
+import logoSvg from "../../assets/svg/Pokemon_logo.svg";
+
 //Contexts
 import { HeaderBgContext } from "../../contexts/HeaderBgContext";
 
@@ -46,7 +49,7 @@ const Header = () => {
             <header className={`${styles.header} ${headerBg}`}>
                 <h1 className={styles.logo}>
                     <NavLink to="/" onClick={closeNav}>
-                        <img src="/Pokemon_logo.svg" alt="pokemon logo" />
+                        <img src={logoSvg} alt="pokemon logo" />
                     </NavLink>
                 </h1>
                 <nav className={styles.nav} ref={navRef}>

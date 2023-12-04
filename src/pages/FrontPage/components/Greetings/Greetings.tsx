@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
 
+//Assets
+import pokedexImg from "../../../../assets/images/Pokedex.png";
+import gameImg from "../../../../assets/images/Game.png";
+
 //Styles
 import styles from "./styles/Greetings.styles.module.css";
 
@@ -23,11 +27,11 @@ const Greetings = ({ myClassName }: Props) => {
             <div className={styles.img_container}>
                 <Link to="/pokedex">
                     <span>Pokédex</span>
-                    <img src="/Pokedex.png" alt="Acessar Pokédex" />
+                    <img src={pokedexImg} alt="Acessar Pokédex" />
                 </Link>
                 <Link to="/game">
                     <span>Quem é esse Pokémon ?</span>
-                    <img src="/Game.png" alt="Jogar 'Quem é esse Pokémon ?'" />
+                    <img src={gameImg} alt="Jogar 'Quem é esse Pokémon ?'" />
                 </Link>
             </div>
         </div>
