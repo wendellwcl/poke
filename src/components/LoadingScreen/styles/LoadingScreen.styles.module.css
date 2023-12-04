@@ -1,8 +1,12 @@
 .loading_container {
-  min-height: calc(100vh - 96px);
+  height: 100vh;
+  position: fixed;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #b3bf54;
+  z-index: 99;
 }
 
 .loading_img {
