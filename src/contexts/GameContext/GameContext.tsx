@@ -4,7 +4,7 @@ import { createContext, useState, useEffect } from "react";
 import { IGeneration, IPokemon } from "../../Interfaces/interfaces";
 
 //Functions
-import fetchGenerations from "./functions/fetchGenerations";
+import fetchGenerations from "./functions/fetchGenerationsList.tsx";
 import start from "./functions/start";
 
 interface Props {
