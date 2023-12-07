@@ -7,7 +7,7 @@
   background-color: transparent;
   color: #f1f1f1;
   position: relative;
-  z-index: 10;
+  z-index: 100;
 }
 @media screen and (max-width: 1023px) {
   .header {
@@ -56,6 +56,10 @@
   font-weight: bold;
   transition: color 0.2s;
 }
+.nav ul li a[class*=active] {
+  color: #324373;
+  cursor: default;
+}
 .nav ul li a:hover {
   color: #324373;
 }
@@ -95,7 +99,7 @@
   inset: 0;
   background-color: #000;
   opacity: 0.7;
-  z-index: 1;
+  z-index: 99;
 }
 .fade.show {
   display: block;
