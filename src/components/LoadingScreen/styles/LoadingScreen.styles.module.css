@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   background-color: #b3bf54;
-  z-index: 99;
+  z-index: 999;
 }
 
 .loading_img {
