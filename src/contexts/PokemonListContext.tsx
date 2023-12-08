@@ -22,7 +22,7 @@ const PokemonListContextProvider = ({ children }: Props) => {
 
     //Fetch list of Pokémon names
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemoon/?limit=10000&offset=0")
+        fetch("https://pokeapi.co/api/v2/pokemon/?limit=10000&offset=0")
             .then((res) => {
                 if (res.ok) {
                     return res.json();
