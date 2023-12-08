@@ -20,26 +20,15 @@ const CustomInput = ({ placeholder, icon, id, submitFunction }: Props) => {
 
     const [inputValue, setInputValue] = useState<string>("");
 
+    //Focus input
     useEffect(() => {
         inputRef.current!.focus();
-    }, []);
-
-    useEffect(() => {
-        function handleWrongAnswer() {
-            setInputValue("");
-        }
-
-        window.addEventListener("wrongAnswer", handleWrongAnswer);
-
-        return () => {
-            window.removeEventListener("wrongAnswer", handleWrongAnswer);
-        };
     }, []);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        submitFunction(inputValue);
+        submitFunction(inputValue, setInputValue);
     };
 
     return (

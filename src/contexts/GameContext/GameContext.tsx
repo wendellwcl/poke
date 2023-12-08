@@ -16,7 +16,7 @@ interface IGameContextValue {
     loading: boolean;
     pokemon: IPokemon | null;
     handleStart: () => void;
-    handleGuessPokemon: (guess: string) => void;
+    handleGuessPokemon: (value: string, handleInputValue: Function) => void;
 }
 
 export const GameContetx = createContext<IGameContextValue>({
@@ -52,8 +52,8 @@ const GameContextProvider = ({ children }: Props) => {
         }, 1000);
     };
 
-    const handleGuessPokemon = (guess: string) => {
-        const result = pokemon!.name === guess ? true : false;
+    const handleGuessPokemon = (value: string, handleInputValue: Function) => {
+        const result = pokemon!.name === value ? true : false;
 
         if (result) {
             document.querySelector("#pokemon-display")!.classList.add("show");
@@ -61,8 +61,7 @@ const GameContextProvider = ({ children }: Props) => {
                 document.querySelector("#draw-anohter-btn") as HTMLButtonElement
             ).focus();
         } else {
-            const wrongAnswerEvent = new Event("wrongAnswer");
-            window.dispatchEvent(wrongAnswerEvent);
+            handleInputValue("");
         }
     };
 
