@@ -10,7 +10,7 @@ interface Props {
     id: string;
     placeholder: string;
     icon: React.ReactElement;
-    submitFunction: Function;
+    submitFunction?: Function;
 }
 
 const CustomInput = ({ placeholder, icon, id, submitFunction }: Props) => {
@@ -25,10 +25,13 @@ const CustomInput = ({ placeholder, icon, id, submitFunction }: Props) => {
         inputRef.current!.focus();
     }, []);
 
+    //This function handle with the input submit and can execute a submit function received via Props
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        submitFunction(inputValue, setInputValue);
+        if (submitFunction) {
+            submitFunction(inputValue, setInputValue);
+        }
     };
 
     return (
