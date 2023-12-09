@@ -1,0 +1,45 @@
+.errorPage_container {
+  width: 100%;
+  height: calc(100vh - 96px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #b3bf54;
+  padding: 40px;
+}
+.errorPage_container .error_msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  color: #f1f1f1;
+  font-weight: bold;
+  text-align: center;
+}
+.errorPage_container .error_msg .oops {
+  font-family: Nexa;
+  font-size: 40px;
+}
+.errorPage_container a {
+  background-color: #b3bf54;
+  color: #f1f1f1;
+  font-weight: bold;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+  background-color: #324373;
+}
+.errorPage_container a:hover {
+  color: #324373;
+}
+.errorPage_container a:focus {
+  color: #324373;
+  box-shadow: 0 0 0 3px #324373;
+}
+.errorPage_container a:hover {
+  color: #b3bf54;
+}/*# sourceMappingURL=ErrorPage.styles.module.css.map */

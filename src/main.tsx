@@ -13,6 +13,7 @@ import FrontPage from "./pages/FrontPage/FrontPage.tsx";
 import Game from "./pages/Game/Game.tsx";
 import Pokedex from "./pages/Pokedex/Pokedex.tsx";
 import About from "./pages/About/About.tsx";
+import ErrorPage from "./pages/ErrorPage/ErrorPage.tsx";
 
 //Styles
 import "normalize.css";
@@ -38,6 +39,10 @@ const router = createHashRouter([
             {
                 path: "/about",
                 element: <About />,
+            },
+            {
+                path: "/error",
+                element: <ErrorPage />,
             },
         ],
     },
