@@ -18,7 +18,7 @@ class Generation {
     };
 }
 
-async function fetchGenerations(
+async function fetchGenerationsList(
     handleSetLoading: (value: boolean) => void,
     handleSetGenerationsList: (value: IGeneration[]) => void
 ) {
@@ -69,4 +69,4 @@ async function fetchGenerations(
     });
 }
 
-export default fetchGenerations;
+export default fetchGenerationsList;

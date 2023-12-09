@@ -1,11 +1,14 @@
+//This Context is responsible for centralizing all features related to how the game works
+
 import { createContext, useState, useEffect } from "react";
 
 //Interfaces
 import { IGeneration, IPokemon } from "../../Interfaces/interfaces";
 
 //Functions
-import fetchGenerations from "./functions/fetchGenerationsList.tsx";
+import fetchGenerationsList from "./functions/fetchGenerationsList.tsx";
 import start from "./functions/start";
+import guessPokemon from "./functions/guessPokemon.tsx";
 
 interface Props {
     children: React.ReactNode;
@@ -16,7 +19,10 @@ interface IGameContextValue {
     loading: boolean;
     pokemon: IPokemon | null;
     handleStart: () => void;
-    handleGuessPokemon: (value: string, handleInputValue: Function) => void;
+    handleGuessPokemon: (
+        value: string,
+        handleInputValue: React.Dispatch<React.SetStateAction<string>>
+    ) => void;
 }
 
 export const GameContetx = createContext<IGameContextValue>({
@@ -32,42 +38,37 @@ const GameContextProvider = ({ children }: Props) => {
     const [generationsList, setGenerationsList] = useState<IGeneration[]>([]);
     const [pokemon, setPokemon] = useState<IPokemon | null>(null);
 
+    //Function to handle with 'loading' state
     const handleSetLoading = (value: boolean) => {
         setLoading(value);
     };
 
+    //Function to handle with 'generationsList' state
     const handleSetGenerationsList = (value: IGeneration[]) => {
         setGenerationsList(value);
     };
 
-    const handleStart = async () => {
-        setLoading(true);
-
-        const gameData = await start(generationsList, handleStart);
-
-        setPokemon(gameData);
-
-        setTimeout(() => {
-            setLoading(false);
-        }, 1000);
+    //Function to handle with 'generationsList' state
+    const handleSetPokemon = (value: IPokemon) => {
+        setPokemon(value);
     };
 
-    const handleGuessPokemon = (value: string, handleInputValue: Function) => {
-        const result = pokemon!.name === value ? true : false;
-
-        if (result) {
-            document.querySelector("#pokemon-display")!.classList.add("show");
-            (
-                document.querySelector("#draw-anohter-btn") as HTMLButtonElement
-            ).focus();
-        } else {
-            handleInputValue("");
-        }
+    //Function to start the game
+    const handleStart = () => {
+        start(generationsList, handleSetLoading, handleSetPokemon, handleStart);
     };
 
-    //1. Fetch Generations Data
+    //Function to handle with a guess, check if the player answer is correct
+    const handleGuessPokemon = (
+        playerAnswer: string,
+        handleInputValue: React.Dispatch<React.SetStateAction<string>>
+    ) => {
+        guessPokemon(pokemon!.name, playerAnswer, handleInputValue);
+    };
+
+    //Fetch generations list
     useEffect(() => {
-        fetchGenerations(handleSetLoading, handleSetGenerationsList);
+        fetchGenerationsList(handleSetLoading, handleSetGenerationsList);
     }, []);
 
     const contextValue: IGameContextValue = {
