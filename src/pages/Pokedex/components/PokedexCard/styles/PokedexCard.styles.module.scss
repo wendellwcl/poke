@@ -8,7 +8,7 @@
     padding: 8px;
     border-radius: 8px;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 480px) {
         max-width: 100%;
         height: 92px;
         display: flex;
@@ -24,7 +24,7 @@
     margin-bottom: 4px;
     aspect-ratio: 1/1;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 480px) {
         height: 100%;
         margin-right: 8px;
     }
@@ -40,7 +40,7 @@
 .body_container {
     width: 100%;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 480px) {
         display: flex;
         flex-direction: row;
         height: 100%;
@@ -50,7 +50,7 @@
 .infos_container {
     width: 100%;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 480px) {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;

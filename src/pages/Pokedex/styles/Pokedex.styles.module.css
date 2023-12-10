@@ -18,6 +18,11 @@
 }
 @media screen and (max-width: 767px) {
   .pokedex_grid {
+    grid-template-columns: repeat(2, minmax(0px, 1fr));
+  }
+}
+@media screen and (max-width: 480px) {
+  .pokedex_grid {
     display: flex;
     flex-direction: column;
     gap: 16px;
