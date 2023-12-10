@@ -6,8 +6,8 @@
 }
 .generations_modal_body .description {
   font-size: 16px;
-  font-weight: normal;
-  margin-bottom: 16px;
+  font-weight: bold;
+  margin-bottom: 24px;
 }
 .generations_modal_body .checkboxes_container {
   display: flex;
@@ -18,4 +18,27 @@
 }
 .generations_modal_body .checkboxes_container > * {
   flex: 0 1 120px;
+}
+
+.generations_modal_footer {
+  width: 100%;
+  margin-top: 24px;
+}
+.generations_modal_footer button {
+  background-color: #b3bf54;
+  color: #f1f1f1;
+  font-weight: bold;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+  width: 100%;
+}
+.generations_modal_footer button:hover {
+  color: #324373;
+}
+.generations_modal_footer button:focus {
+  color: #324373;
+  box-shadow: 0 0 0 3px #324373;
 }/*# sourceMappingURL=GenerationModalBody.styles.module.css.map */

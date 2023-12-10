@@ -1,3 +1,5 @@
+@import "../../../../../styles/mixins";
+
 .generations_modal_body {
     display: flex;
     flex-direction: column;
@@ -6,8 +8,8 @@
 
     .description {
         font-size: 16px;
-        font-weight: normal;
-        margin-bottom: 16px;
+        font-weight: bold;
+        margin-bottom: 24px;
     }
 
     .checkboxes_container {
@@ -20,5 +22,15 @@
         > * {
             flex: 0 1 120px;
         }
+    }
+}
+
+.generations_modal_footer {
+    width: 100%;
+    margin-top: 24px;
+
+    button {
+        @include btn_default;
+        width: 100%;
     }
 }

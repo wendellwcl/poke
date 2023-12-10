@@ -7,8 +7,8 @@ import CustomInput from "../../../../components/CustomInput/CustomInput";
 //Contexts
 import { GameContetx } from "../../../../contexts/GameContext/GameContext";
 
-//Utils
-import openModal from "../../../../utils/openModal";
+//Custom Hooks
+import useModal from "../../../../hooks/useModal";
 
 //Styles
 import styles from "./styles/GameInterface.styles.module.css";
@@ -16,6 +16,8 @@ import styles from "./styles/GameInterface.styles.module.css";
 const GameInterface = () => {
     const { handleGuessPokemon, handleStart, pokemon } =
         useContext(GameContetx);
+
+    const { openModal } = useModal();
 
     const btnRef = useRef<HTMLButtonElement | null>(null);
     const hintRef = useRef<HTMLSpanElement | null>(null);

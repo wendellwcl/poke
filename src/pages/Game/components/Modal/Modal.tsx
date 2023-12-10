@@ -1,5 +1,7 @@
-import { useRef } from "react";
 import { BsX } from "react-icons/bs";
+
+//Custom Hooks
+import useModal from "../../../../hooks/useModal";
 
 //Styles
 import styles from "./styles/Modal.styles.module.css";
@@ -11,16 +13,14 @@ interface Props {
 }
 
 const Modal = ({ children, title, modalId }: Props) => {
-    const modalRef = useRef<HTMLDivElement | null>(null);
-
-    function closeModal() {
-        const modalEl = modalRef.current;
-        modalEl!.classList.remove("show");
-    }
+    const { closeModal } = useModal();
 
     return (
-        <div className={styles.modal_container} id={modalId} ref={modalRef}>
-            <div className={styles.modal_fade} onClick={closeModal}></div>
+        <div className={styles.modal_container} id={modalId}>
+            <div
+                className={styles.modal_fade}
+                onClick={() => closeModal(modalId)}
+            ></div>
             <div className={styles.modal_element}>
                 <div className={styles.modal_header}>
                     <h5 className={styles.modal_title}>{title}</h5>
@@ -35,7 +35,7 @@ const Modal = ({ children, title, modalId }: Props) => {
                         </svg>
                         <button
                             className={styles.close_btn}
-                            onClick={closeModal}
+                            onClick={() => closeModal(modalId)}
                         >
                             <BsX />
                         </button>
