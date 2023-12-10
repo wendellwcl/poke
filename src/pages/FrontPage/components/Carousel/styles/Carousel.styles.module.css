@@ -1,31 +1,11 @@
 .carousel_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-@keyframes carouselAnimation {
-  0% {
-    opacity: 0;
-  }
-  3% {
-    opacity: 1;
-  }
-  22% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-.carousel {
   width: 100%;
   max-width: 480px;
   max-height: 480px;
+}
+
+.carousel {
+  width: 100%;
   position: relative;
   aspect-ratio: 1/1;
 }
@@ -35,17 +15,45 @@
   display: block;
   width: 100%;
   opacity: 0;
-  animation: carouselAnimation 32s linear infinite;
+  animation: carouselAnimation 30s linear infinite;
 }
 .carousel img:nth-child(1) {
   animation-delay: 0s;
 }
 .carousel img:nth-child(2) {
-  animation-delay: 8s;
+  animation-delay: 6s;
 }
 .carousel img:nth-child(3) {
-  animation-delay: 16s;
+  animation-delay: 12s;
 }
 .carousel img:nth-child(4) {
+  animation-delay: 18s;
+}
+.carousel img:nth-child(5) {
   animation-delay: 24s;
+}
+
+@keyframes carouselAnimation {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  18% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.carousel_placeholder {
+  width: 100%;
+}
+.carousel_placeholder img {
+  display: block;
+  width: 100%;
 }/*# sourceMappingURL=Carousel.styles.module.css.map */
