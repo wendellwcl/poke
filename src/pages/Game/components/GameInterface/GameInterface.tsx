@@ -24,12 +24,15 @@ const GameInterface = () => {
 
     const [hint, setHint] = useState<string>("");
 
+    //Give the player a hint
     const handleHint = (name: string) => {
+        //Handle hint
         let hint: string | string[] = Array.from(name);
         hint = hint.fill("_", 2);
         hint = hint.join(" ");
         setHint(hint);
 
+        //Show hint
         btnRef.current!.style.display = "none";
         hintRef.current!.style.display = "block";
     };

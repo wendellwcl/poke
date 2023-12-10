@@ -14,6 +14,7 @@ interface Props {
 const CustomCheckbox = ({ text, generation }: Props) => {
     const [isChecked, setIsChecked] = useState<boolean>(generation.selected);
 
+    //Event to guarantee the visual change of state of checkboxes on updates
     useEffect(() => {
         window.addEventListener("refreshCheckbox", () =>
             setIsChecked(generation.selected)
