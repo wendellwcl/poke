@@ -1,0 +1,38 @@
+@import "../../../styles/partials";
+@import "../../../styles/mixins";
+
+.notFound_container {
+    width: 100%;
+    height: calc(100vh - $header-height);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color;
+    padding: 40px;
+
+    .notFound_msg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 32px;
+        color: $light-color-1;
+        font-weight: bold;
+        text-align: center;
+
+        .emphasis {
+            font-family: $styled-font;
+            font-size: 40px;
+        }
+    }
+
+    a {
+        @include btn_default;
+        background-color: $secondary-color;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
+}

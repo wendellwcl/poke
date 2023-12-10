@@ -14,6 +14,7 @@ import Game from "./pages/Game/Game.tsx";
 import Pokedex from "./pages/Pokedex/Pokedex.tsx";
 import About from "./pages/About/About.tsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.tsx";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
 
 //Styles
 import "normalize.css";
@@ -43,6 +44,10 @@ const router = createHashRouter([
             {
                 path: "/error",
                 element: <ErrorPage />,
+            },
+            {
+                path: "*",
+                element: <NotFoundPage />,
             },
         ],
     },
