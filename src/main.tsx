@@ -4,7 +4,6 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 
 //Contexts
 import HeaderBgContextProvider from "./contexts/HeaderBgContext.tsx";
-import PokemonListContextProvider from "./contexts/PokemonListContext.tsx";
 import GameContextProvider from "./contexts/GameContext/GameContext.tsx";
 
 //Pages
@@ -56,11 +55,9 @@ const router = createHashRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
         <HeaderBgContextProvider>
-            <PokemonListContextProvider>
-                <GameContextProvider>
-                    <RouterProvider router={router} />
-                </GameContextProvider>
-            </PokemonListContextProvider>
+            <GameContextProvider>
+                <RouterProvider router={router} />
+            </GameContextProvider>
         </HeaderBgContextProvider>
     </React.StrictMode>
 );

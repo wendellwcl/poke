@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef } from "react";
 
-//Contexts
-import { PokemonListContext } from "../../contexts/PokemonListContext";
+//Custom Hooks
+import usePokemonNameList from "../../hooks/usePokemonNameList";
 
 //Styles
 import styles from "./styles/CustomInput.styles.module.css";
@@ -16,7 +16,7 @@ interface Props {
 const CustomInput = ({ placeholder, icon, id, submitFunction }: Props) => {
     const inputRef = useRef<HTMLInputElement | null>(null);
 
-    const { pokemonList } = useContext(PokemonListContext);
+    const { pokemonNameList } = usePokemonNameList();
 
     const [inputValue, setInputValue] = useState<string>("");
 
@@ -49,7 +49,7 @@ const CustomInput = ({ placeholder, icon, id, submitFunction }: Props) => {
                     list="pokemonNames"
                 />
                 <datalist id="pokemonNames">
-                    {pokemonList.map((pokemon) => (
+                    {pokemonNameList.map((pokemon) => (
                         <option value={pokemon.name} key={pokemon.name} />
                     ))}
                 </datalist>
