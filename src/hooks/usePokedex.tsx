@@ -22,7 +22,11 @@ const usePokedex = () => {
                     }
                 })
                 .then((res) => {
-                    setPokedexArr((prev) => [...prev, ...res.results]);
+                    //Handling duplicate data
+                    const pokemonSet = new Set([...pokedexArr, ...res.results]);
+                    const pokemonArr = Array.from(pokemonSet);
+
+                    setPokedexArr(pokemonArr);
                     setNextEndpoint(res.next);
                 })
                 .catch((e) => {
@@ -46,7 +50,7 @@ const usePokedex = () => {
             "#pokedex-bottom-loading"
         ) as HTMLElement;
 
-        if (scrollValue >= scrollLimit && nextEndpoint) {
+        if (scrollValue >= scrollLimit - 100 && nextEndpoint) {
             window.removeEventListener("scroll", handleFetchIfArrivedAtBottom);
 
             loadingEl.style.display = "flex";

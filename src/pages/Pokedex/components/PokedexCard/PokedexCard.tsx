@@ -22,7 +22,13 @@ const PokedexCard = ({ pokemon }: Props) => {
     //Fetching data
     useEffect(() => {
         fetch(pokemon.url)
-            .then((res) => res.json())
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    throw `Error fetching Pokémon data (${pokemon.name})`;
+                }
+            })
             .then((res) => setPokemonData(res));
     }, [pokemon]);
 
