@@ -1,3 +1,7 @@
+.pokedex_container {
+  padding-bottom: 48px;
+}
+
 .pokedex_grid {
   width: 100%;
   max-width: 1080px;
