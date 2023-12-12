@@ -43,15 +43,16 @@ const usePokedex = () => {
     }
 
     //Automatic fetch when the page scrolls to the bottom
-    async function fetchIfArrivedAtBottom() {
+    function fetchIfArrivedAtBottom() {
         const scrollValue = window.scrollY + window.innerHeight;
         const scrollLimit = document.body.scrollHeight;
-        const loadingEl = document.querySelector(
-            "#pokedex-bottom-loading"
-        ) as HTMLElement;
 
-        if (scrollValue >= scrollLimit - 100 && nextEndpoint) {
+        if (scrollValue >= scrollLimit && nextEndpoint) {
             window.removeEventListener("scroll", handleFetchIfArrivedAtBottom);
+
+            const loadingEl = document.querySelector(
+                "#pokedex-bottom-loading"
+            ) as HTMLElement;
 
             loadingEl.style.display = "flex";
 
