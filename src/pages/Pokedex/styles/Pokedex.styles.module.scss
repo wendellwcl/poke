@@ -1,7 +1,9 @@
 @import "../../../styles/partials";
+@import "../../../styles/mixins";
 
 .pokedex_container {
     padding-bottom: 48px;
+    position: relative;
 }
 
 .pokedex_grid {
@@ -45,6 +47,30 @@
 
     @media screen and (max-width: 480px) {
         height: 30px;
+    }
+}
+
+.btn_toTop {
+    @include btn_default;
+    background-color: transparent;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: $secondary-color;
+    opacity: 0.9;
+    display: none;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:focus {
+        box-shadow: none;
+    }
+
+    svg {
+        display: block;
     }
 }
 

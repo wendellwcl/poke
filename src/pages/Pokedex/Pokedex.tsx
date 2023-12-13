@@ -1,4 +1,5 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useRef } from "react";
+import { BsFillArrowUpCircleFill } from "react-icons/bs";
 
 //Contexts
 import { HeaderBgContext } from "../../contexts/HeaderBgContext";
@@ -21,6 +22,34 @@ const Pokedex = () => {
 
     const { loading, pokedexArr } = usePokedex();
 
+    const btnToTopRef = useRef<HTMLButtonElement>(null);
+
+    //Function to scroll to top
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    //Function to show the 'btn to top'
+    function handleDisplayBtnToTop() {
+        const scrollValue = window.scrollY;
+
+        if (scrollValue > 1000) {
+            btnToTopRef.current!.style.display = "block";
+        } else {
+            btnToTopRef.current!.style.display = "none";
+        }
+    }
+
+    //Adding 'handleDisplayBtnToTop' function on scroll event
+    useEffect(() => {
+        window.addEventListener("scroll", handleDisplayBtnToTop);
+
+        //Clean up
+        return () => {
+            window.removeEventListener("scroll", handleDisplayBtnToTop);
+        };
+    }, []);
+
     //Changing Header background
     useEffect(() => {
         setHeaderBg("color");
@@ -33,17 +62,21 @@ const Pokedex = () => {
             ) : (
                 <div className={styles.pokedex_container}>
                     <div className={styles.pokedex_grid}>
-                        {pokedexArr.length > 0 ? (
+                        {pokedexArr.length > 0 &&
                             pokedexArr.map((pokemon, index) => (
                                 <PokedexCard key={index} pokemon={pokemon} />
-                            ))
-                        ) : (
-                            <span>Sem resultados</span>
-                        )}
+                            ))}
                     </div>
                     <div className={styles.loading} id="pokedex-bottom-loading">
                         <img src={pokeball} className={styles.loading_img} />
                     </div>
+                    <button
+                        className={styles.btn_toTop}
+                        ref={btnToTopRef}
+                        onClick={scrollToTop}
+                    >
+                        <BsFillArrowUpCircleFill />
+                    </button>
                 </div>
             )}
         </>

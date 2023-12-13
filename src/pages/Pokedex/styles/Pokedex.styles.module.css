@@ -1,5 +1,6 @@
 .pokedex_container {
   padding-bottom: 48px;
+  position: relative;
 }
 
 .pokedex_grid {
@@ -48,6 +49,41 @@
   .loading_img {
     height: 30px;
   }
+}
+
+.btn_toTop {
+  background-color: #b3bf54;
+  color: #f1f1f1;
+  font-weight: bold;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+  background-color: transparent;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 40px;
+  color: #324373;
+  opacity: 0.9;
+  display: none;
+}
+.btn_toTop:hover {
+  color: #324373;
+}
+.btn_toTop:focus {
+  color: #324373;
+  box-shadow: 0 0 0 3px #324373;
+}
+.btn_toTop:hover {
+  opacity: 1;
+}
+.btn_toTop:focus {
+  box-shadow: none;
+}
+.btn_toTop svg {
+  display: block;
 }
 
 @keyframes loading-animation {
