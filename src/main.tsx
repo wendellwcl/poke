@@ -11,6 +11,7 @@ import App from "./App.tsx";
 import FrontPage from "./pages/FrontPage/FrontPage.tsx";
 import Game from "./pages/Game/Game.tsx";
 import Pokedex from "./pages/Pokedex/Pokedex.tsx";
+import Results from "./pages/Results/Results.tsx";
 import About from "./pages/About/About.tsx";
 import ErrorPage from "./pages/ErrorPage/ErrorPage.tsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
@@ -35,6 +36,10 @@ const router = createHashRouter([
             {
                 path: "/pokedex",
                 element: <Pokedex />,
+            },
+            {
+                path: "/results/:pokemon",
+                element: <Results />,
             },
             {
                 path: "/about",

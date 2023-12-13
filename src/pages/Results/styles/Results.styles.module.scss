@@ -1,0 +1,37 @@
+@import "../../../styles/partials";
+
+.results_container {
+    min-height: calc(100vh - $header-height);
+    padding: 16px;
+}
+
+.search_input {
+    max-width: 540px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.results {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading {
+    width: 40px;
+    aspect-ratio: 1/1;
+
+    img {
+        display: block;
+        animation: loading_animation 1s linear infinite;
+
+        @keyframes loading_animation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
