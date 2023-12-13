@@ -75,7 +75,11 @@ const Pokedex = () => {
                     <div className={styles.pokedex_grid}>
                         {pokedexArr.length > 0 &&
                             pokedexArr.map((pokemon, index) => (
-                                <PokeCard key={index} pokemon={pokemon} />
+                                <PokeCard
+                                    key={index}
+                                    pokemonName={pokemon.name}
+                                    pokemonUrl={pokemon.url}
+                                />
                             ))}
                     </div>
                     <div className={styles.loading} id="pokedex-bottom-loading">

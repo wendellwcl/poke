@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import imgLoadingPlaceholder from "../../utils/imgLoadingPlaceholder";
 
 //Interfaces
-import { IPokemonShort, IPokemon } from "../../Interfaces/interfaces";
+import { IPokemon } from "../../Interfaces/interfaces";
 
 //Assets
 import pokeball from "../../assets/svg/ball.svg";
@@ -13,28 +13,35 @@ import pokeball from "../../assets/svg/ball.svg";
 import styles from "./styles/PokeCard.styles.module.css";
 
 interface Props {
-    pokemon: IPokemonShort;
+    pokemonName: string;
+    pokemonUrl: string;
 }
 
-const PokeCard = ({ pokemon }: Props) => {
+const PokeCard = ({ pokemonName, pokemonUrl }: Props) => {
     const [pokemonData, setPokemonData] = useState<IPokemon>();
+    const [loading, setLoading] = useState<boolean>(true);
 
     //Fetching data
     useEffect(() => {
-        fetch(pokemon.url)
+        setLoading(true);
+
+        fetch(pokemonUrl)
             .then((res) => {
                 if (res.ok) {
                     return res.json();
                 } else {
-                    throw `Error fetching Pokémon data (${pokemon.name})`;
+                    throw `Error fetching Pokémon data (${pokemonName})`;
                 }
             })
-            .then((res) => setPokemonData(res));
-    }, [pokemon]);
+            .then((res) => setPokemonData(res))
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [pokemonUrl]);
 
     return (
         <>
-            {pokemonData && (
+            {!loading && pokemonData && (
                 <div className={styles.card_container}>
                     <div className={styles.img_container}>
                         <div className="loading_placeholder"></div>
