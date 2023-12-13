@@ -2,8 +2,14 @@
 @import "../../../styles/mixins";
 
 .pokedex_container {
+    padding: 16px;
     padding-bottom: 48px;
     position: relative;
+}
+
+.search_container {
+    max-width: 540px;
+    margin: 0 auto;
 }
 
 .pokedex_grid {

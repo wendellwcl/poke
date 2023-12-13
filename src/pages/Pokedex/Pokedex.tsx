@@ -1,5 +1,5 @@
 import { useEffect, useContext, useRef } from "react";
-import { BsFillArrowUpCircleFill } from "react-icons/bs";
+import { BsFillArrowUpCircleFill, BsSearch } from "react-icons/bs";
 
 //Contexts
 import { HeaderBgContext } from "../../contexts/HeaderBgContext";
@@ -10,7 +10,8 @@ import useSearch from "../../hooks/useSearch";
 
 //Components
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
-import PokedexCard from "./components/PokedexCard/PokedexCard";
+import CustomInput from "../../components/CustomInput/CustomInput";
+import PokeCard from "../../components/PokeCard/PokeCard";
 
 //Assets
 import pokeball from "../../assets/svg/ball.svg";
@@ -63,10 +64,18 @@ const Pokedex = () => {
                 <LoadingScreen />
             ) : (
                 <div className={styles.pokedex_container}>
+                    <div className={styles.search_container}>
+                        <CustomInput
+                            id="search-input"
+                            placeholder="Pesquisar Pokémon"
+                            icon={<BsSearch />}
+                            submitFunction={handleSearch}
+                        />
+                    </div>
                     <div className={styles.pokedex_grid}>
                         {pokedexArr.length > 0 &&
                             pokedexArr.map((pokemon, index) => (
-                                <PokedexCard key={index} pokemon={pokemon} />
+                                <PokeCard key={index} pokemon={pokemon} />
                             ))}
                     </div>
                     <div className={styles.loading} id="pokedex-bottom-loading">
