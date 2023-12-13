@@ -29,7 +29,7 @@ const CustomInput = ({ placeholder, icon, id, submitFunction }: Props) => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (submitFunction) {
+        if (submitFunction && inputValue) {
             submitFunction(inputValue, setInputValue);
         }
     };
