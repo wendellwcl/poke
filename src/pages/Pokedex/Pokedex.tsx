@@ -6,6 +6,7 @@ import { HeaderBgContext } from "../../contexts/HeaderBgContext";
 
 //Custom Hooks
 import usePokedex from "../../hooks/usePokedex";
+import useSearch from "../../hooks/useSearch";
 
 //Components
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
@@ -21,8 +22,14 @@ const Pokedex = () => {
     const { setHeaderBg } = useContext(HeaderBgContext);
 
     const { loading, pokedexArr } = usePokedex();
+    const { handleSearch } = useSearch();
 
     const btnToTopRef = useRef<HTMLButtonElement>(null);
+
+    //Changing Header background
+    useEffect(() => {
+        setHeaderBg("color");
+    }, []);
 
     //Function to scroll to top
     function scrollToTop() {
@@ -48,11 +55,6 @@ const Pokedex = () => {
         return () => {
             window.removeEventListener("scroll", handleDisplayBtnToTop);
         };
-    }, []);
-
-    //Changing Header background
-    useEffect(() => {
-        setHeaderBg("color");
     }, []);
 
     return (
