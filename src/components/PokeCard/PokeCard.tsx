@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 
 //Utils
-import imgLoadingPlaceholder from "../../../../utils/imgLoadingPlaceholder";
+import imgLoadingPlaceholder from "../../utils/imgLoadingPlaceholder";
 
 //Interfaces
-import { IPokemonShort, IPokemon } from "../../../../Interfaces/interfaces";
+import { IPokemonShort, IPokemon } from "../../Interfaces/interfaces";
 
 //Assets
-import pokeball from "../../../../assets/svg/ball.svg";
+import pokeball from "../../assets/svg/ball.svg";
 
 //Styles
-import styles from "./styles/PokedexCard.styles.module.css";
+import styles from "./styles/PokeCard.styles.module.css";
 
 interface Props {
     pokemon: IPokemonShort;
 }
 
-const PokedexCard = ({ pokemon }: Props) => {
+const PokeCard = ({ pokemon }: Props) => {
     const [pokemonData, setPokemonData] = useState<IPokemon>();
 
     //Fetching data
@@ -76,4 +76,4 @@ const PokedexCard = ({ pokemon }: Props) => {
     );
 };
 
-export default PokedexCard;
+export default PokeCard;
