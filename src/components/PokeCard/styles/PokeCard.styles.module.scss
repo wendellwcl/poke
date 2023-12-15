@@ -67,12 +67,12 @@
         overflow: hidden;
         text-overflow: ellipsis;
 
-        @media screen and (max-width: 440px) {
-            max-width: 248px;
+        @media screen and (max-width: 480px) {
+            max-width: 240px;
         }
 
-        @media screen and (max-width: 380px) {
-            max-width: 185px;
+        @media screen and (max-width: 400px) {
+            max-width: 150px;
         }
     }
 }

@@ -68,14 +68,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 480px) {
   .infos_container .name {
-    max-width: 248px;
+    max-width: 240px;
   }
 }
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 400px) {
   .infos_container .name {
-    max-width: 185px;
+    max-width: 150px;
   }
 }
 
