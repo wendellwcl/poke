@@ -36,7 +36,7 @@ const CustomInput = ({ placeholder, icon, id, submitFunction }: Props) => {
 
     return (
         <form onSubmit={(e) => handleSubmit(e)}>
-            <div className={styles.search_input}>
+            <div className={styles.custom_input}>
                 <input
                     type="text"
                     id={id}
