@@ -35,6 +35,12 @@ const GameInterface = () => {
         //Show hint
         btnRef.current!.style.display = "none";
         hintRef.current!.style.display = "block";
+
+        //Focus input
+        const inputEl = document.querySelector(
+            "#game-input"
+        ) as HTMLInputElement;
+        inputEl.focus();
     };
 
     return (
