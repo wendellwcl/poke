@@ -48,11 +48,13 @@ const CustomInput = ({ placeholder, icon, id, submitFunction }: Props) => {
                     }}
                     list="pokemonNames"
                 />
-                <datalist id="pokemonNames">
-                    {pokemonNameList.map((pokemon) => (
-                        <option value={pokemon.name} key={pokemon.name} />
-                    ))}
-                </datalist>
+                {inputValue.length > 0 && (
+                    <datalist id="pokemonNames">
+                        {pokemonNameList.map((pokemon) => (
+                            <option value={pokemon.name} key={pokemon.name} />
+                        ))}
+                    </datalist>
+                )}
                 <button type="submit">{icon}</button>
             </div>
         </form>
