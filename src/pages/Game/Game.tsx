@@ -8,16 +8,23 @@ import Modal from "./components/Modal/Modal";
 import GenerationModalBody from "./components/GenerationModalBody/GenerationModalBody";
 
 //Contexts
-import { GameContetx } from "../../contexts/GameContext/GameContext";
 import { HeaderBgContext } from "../../contexts/HeaderBgContext";
 
 //Styles
 import styles from "./styles/Game.styles.module.css";
 
+import useGame from "../../hooks/useGame/useGame";
+
 const Game = () => {
+    const {
+        loading,
+        generations,
+        pokemon,
+        handleStartGame,
+        handleGuessPokemon,
+    } = useGame();
+
     const { setHeaderBg } = useContext(HeaderBgContext);
-    const { generationsList, loading, handleStart, pokemon } =
-        useContext(GameContetx);
 
     //Changing Header background
     useEffect(() => {
@@ -26,10 +33,8 @@ const Game = () => {
 
     //Start the Game
     useEffect(() => {
-        if (!loading) {
-            handleStart();
-        }
-    }, [generationsList]);
+        !loading && handleStartGame();
+    }, [generations]);
 
     return (
         <>
@@ -38,13 +43,17 @@ const Game = () => {
             ) : (
                 <div className={styles.game_container}>
                     <div className="left_container">
-                        <GameInterface />
+                        <GameInterface
+                            handleStartGame={handleStartGame}
+                            handleGuessPokemon={handleGuessPokemon}
+                            pokemon={pokemon}
+                        />
                     </div>
                     <div className="right_container">
                         <PokemonDisplay pokemon={pokemon} />
                     </div>
                     <Modal title="Gerações" modalId="generations-modal">
-                        <GenerationModalBody />
+                        <GenerationModalBody generations={generations} />
                     </Modal>
                 </div>
             )}

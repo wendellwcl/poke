@@ -1,22 +1,32 @@
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 
 //Components
 import CustomInput from "../../../../components/CustomInput/CustomInput";
 
-//Contexts
-import { GameContetx } from "../../../../contexts/GameContext/GameContext";
-
 //Custom Hooks
 import useModal from "../../../../hooks/useModal";
+
+//Interfaces
+import { IPokemon } from "../../../../Interfaces/interfaces";
 
 //Styles
 import styles from "./styles/GameInterface.styles.module.css";
 
-const GameInterface = () => {
-    const { handleGuessPokemon, handleStart, pokemon } =
-        useContext(GameContetx);
+interface Props {
+    handleStartGame: () => void;
+    handleGuessPokemon: (
+        playerAnswer: string,
+        handleInputValue: (value: React.SetStateAction<string>) => void
+    ) => void;
+    pokemon: IPokemon;
+}
 
+const GameInterface = ({
+    handleStartGame,
+    handleGuessPokemon,
+    pokemon,
+}: Props) => {
     const { openModal } = useModal();
 
     const btnRef = useRef<HTMLButtonElement | null>(null);
@@ -57,7 +67,7 @@ const GameInterface = () => {
             <div className={styles.btn_container}>
                 <div className={styles.hint_container}>
                     <button
-                        onClick={() => handleHint(pokemon!.name)}
+                        onClick={() => handleHint(pokemon.name)}
                         ref={btnRef}
                     >
                         Dica
@@ -66,7 +76,7 @@ const GameInterface = () => {
                         Dica: "{hint}"
                     </span>
                 </div>
-                <button onClick={() => handleStart()} id="draw-anohter-btn">
+                <button onClick={() => handleStartGame()} id="draw-anohter-btn">
                     Sortear outro
                 </button>
                 <button onClick={() => openModal("generations-modal")}>

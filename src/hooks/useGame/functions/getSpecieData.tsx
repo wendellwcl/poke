@@ -1,7 +1,7 @@
 //Interfaces
 import { IPokemonShort } from "../../../Interfaces/interfaces";
 
-function fetchSpecieData(specie: IPokemonShort) {
+function getSpecieData(specie: IPokemonShort) {
     const data = fetch(
         `https://pokeapi.co/api/v2/pokemon/${specie.name}/`
     ).then((res) => {
@@ -15,4 +15,4 @@ function fetchSpecieData(specie: IPokemonShort) {
     return data;
 }
 
-export default fetchSpecieData;
+export default getSpecieData;

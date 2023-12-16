@@ -1,29 +1,32 @@
 //Functions
 import getSelectedGenerations from "./getSelectedGenerations";
-import setGenerationAutomatically from "./setGenerationAutomatically";
+import selectDefaultGeneration from "./selectDefaultGeneration";
 import getSpecies from "./getSpecies";
 import drawRandomSpecies from "./drawRandomSpecies";
-import fetchSpecieData from "./fetchSpecieData";
+import getSpecieData from "./getSpecieData";
+
+//Classes
+import { Generation } from "../../../classes/classes";
 
 //Interfaces
-import { IGeneration, IPokemon } from "../../../Interfaces/interfaces";
+import { IPokemon } from "../../../Interfaces/interfaces";
 
-function start(
-    generationsList: IGeneration[],
+function startGame(
+    generations: Generation[],
     handleSetLoading: (value: boolean) => void,
     handleSetPokemon: (value: IPokemon) => void,
-    handleStart: () => void
+    handleStartGame: () => void
 ) {
     //Set loading state true
     handleSetLoading(true);
 
     //Get the selected generations
-    const selectedGenerations = getSelectedGenerations(generationsList);
+    const selectedGenerations = getSelectedGenerations(generations);
 
     //If no generation is selected, select the first generation by default and rerun the start function
     if (selectedGenerations!.length <= 0) {
-        setGenerationAutomatically(generationsList);
-        handleStart();
+        selectDefaultGeneration(generations);
+        handleStartGame();
         return;
     }
 
@@ -34,7 +37,7 @@ function start(
     const randomSpecie = drawRandomSpecies(species);
 
     //Fetch data from drawn Pokémon
-    const specieData = fetchSpecieData(randomSpecie);
+    const specieData = getSpecieData(randomSpecie);
 
     //Handle the specie fetch result
     specieData
@@ -46,4 +49,4 @@ function start(
         .finally(() => handleSetLoading(false));
 }
 
-export default start;
+export default startGame;

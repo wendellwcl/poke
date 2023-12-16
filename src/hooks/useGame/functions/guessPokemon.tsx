@@ -1,7 +1,7 @@
 function guessPokemon(
     pokemonName: string,
     playerAnswer: string,
-    handleInputValue: React.Dispatch<React.SetStateAction<string>>
+    handleInputValue: (value: React.SetStateAction<string>) => void
 ) {
     const result = pokemonName === playerAnswer ? true : false;
 

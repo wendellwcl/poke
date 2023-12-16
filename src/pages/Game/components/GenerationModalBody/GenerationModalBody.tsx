@@ -1,20 +1,20 @@
-import { useContext } from "react";
-
-//Contexts
-import { GameContetx } from "../../../../contexts/GameContext/GameContext";
-
 //Components
 import CustomCheckbox from "../CustomCheckbox/CustomCheckbox";
 
 //Custom Hooks
 import useModal from "../../../../hooks/useModal";
 
+//Interfaces
+import { IGeneration } from "../../../../Interfaces/interfaces";
+
 //Styles
 import styles from "./styles/GenerationModalBody.styles.module.css";
 
-const GenerationModalBody = () => {
-    const { generationsList } = useContext(GameContetx);
+interface Props {
+    generations: IGeneration[];
+}
 
+const GenerationModalBody = ({ generations }: Props) => {
     const { closeModal } = useModal();
 
     return (
@@ -23,7 +23,7 @@ const GenerationModalBody = () => {
                 Selecione gerações para incluir ao jogo.
             </h6>
             <div className={styles.checkboxes_container}>
-                {generationsList.map((generation, index) => (
+                {generations.map((generation, index) => (
                     <CustomCheckbox
                         text={`Geração ${index + 1}`}
                         generation={generation}

@@ -4,7 +4,6 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 
 //Contexts
 import HeaderBgContextProvider from "./contexts/HeaderBgContext.tsx";
-import GameContextProvider from "./contexts/GameContext/GameContext.tsx";
 
 //Pages
 import App from "./App.tsx";
@@ -60,9 +59,7 @@ const router = createHashRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
         <HeaderBgContextProvider>
-            <GameContextProvider>
-                <RouterProvider router={router} />
-            </GameContextProvider>
+            <RouterProvider router={router} />
         </HeaderBgContextProvider>
     </React.StrictMode>
 );
