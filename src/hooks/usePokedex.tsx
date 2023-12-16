@@ -47,17 +47,17 @@ const usePokedex = () => {
         const scrollValue = window.scrollY + window.innerHeight;
         const scrollLimit = document.body.scrollHeight;
 
-        if (scrollValue >= scrollLimit && nextEndpoint) {
+        if (scrollValue >= scrollLimit - 100 && nextEndpoint) {
             window.removeEventListener("scroll", handleFetchIfArrivedAtBottom);
 
-            const loadingEl = document.querySelector(
-                "#pokedex-bottom-loading"
+            const pokedexEl = document.querySelector(
+                "#pokedex-container"
             ) as HTMLElement;
 
-            loadingEl.style.display = "flex";
+            pokedexEl.classList.add("loading");
 
             fetchPokedex(() => {
-                loadingEl.style.display = "none";
+                pokedexEl.classList.remove("loading");
             });
         }
     }
@@ -83,7 +83,7 @@ const usePokedex = () => {
         };
     }, [nextEndpoint]);
 
-    return { loading, pokedexArr, handleFetchIfArrivedAtBottom };
+    return { loading, pokedexArr };
 };
 
 export default usePokedex;

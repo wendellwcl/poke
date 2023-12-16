@@ -63,7 +63,10 @@ const Pokedex = () => {
             {loading ? (
                 <LoadingScreen />
             ) : (
-                <div className={styles.pokedex_container}>
+                <div
+                    className={styles.pokedex_container}
+                    id="pokedex-container"
+                >
                     <div className={styles.search_container}>
                         <CustomInput
                             id="search-input"
@@ -82,7 +85,7 @@ const Pokedex = () => {
                                 />
                             ))}
                     </div>
-                    <div className={styles.loading} id="pokedex-bottom-loading">
+                    <div className={styles.loading}>
                         <img src={pokeball} className={styles.loading_img} />
                     </div>
                     <button

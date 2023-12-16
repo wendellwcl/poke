@@ -1,7 +1,9 @@
 .pokedex_container {
   padding: 16px;
-  padding-bottom: 48px;
   position: relative;
+}
+.pokedex_container[class*=loading] .loading {
+  display: flex;
 }
 
 .search_container {
@@ -44,15 +46,14 @@
   justify-content: center;
   display: none;
 }
-
-.loading_img {
+.loading img {
   display: block;
   height: 50px;
   animation: loading-animation 1s linear infinite;
   aspect-ratio: 1/1;
 }
 @media screen and (max-width: 480px) {
-  .loading_img {
+  .loading img {
     height: 30px;
   }
 }

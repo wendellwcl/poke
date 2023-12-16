@@ -3,8 +3,13 @@
 
 .pokedex_container {
     padding: 16px;
-    padding-bottom: 48px;
     position: relative;
+
+    &[class*="loading"] {
+        .loading {
+            display: flex;
+        }
+    }
 }
 
 .search_container {
@@ -43,16 +48,16 @@
     align-items: center;
     justify-content: center;
     display: none;
-}
 
-.loading_img {
-    display: block;
-    height: 50px;
-    animation: loading-animation 1s linear infinite;
-    aspect-ratio: 1/1;
+    img {
+        display: block;
+        height: 50px;
+        animation: loading-animation 1s linear infinite;
+        aspect-ratio: 1/1;
 
-    @media screen and (max-width: 480px) {
-        height: 30px;
+        @media screen and (max-width: 480px) {
+            height: 30px;
+        }
     }
 }
 
