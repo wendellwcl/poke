@@ -47,7 +47,7 @@ const usePokedex = () => {
         const scrollValue = window.scrollY + window.innerHeight;
         const scrollLimit = document.body.offsetHeight;
 
-        if (scrollValue >= scrollLimit && nextEndpoint) {
+        if (scrollValue >= scrollLimit - 100 && nextEndpoint) {
             window.removeEventListener("scroll", handleFetchIfArrivedAtBottom);
 
             const pokedexEl = document.querySelector(
