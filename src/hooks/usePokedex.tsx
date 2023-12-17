@@ -45,7 +45,7 @@ const usePokedex = () => {
     //Automatic fetch when the page scrolls to the bottom
     function fetchIfArrivedAtBottom() {
         const scrollValue = window.scrollY + window.innerHeight;
-        const scrollLimit = document.body.scrollHeight;
+        const scrollLimit = document.body.offsetHeight;
 
         if (scrollValue >= scrollLimit && nextEndpoint) {
             window.removeEventListener("scroll", handleFetchIfArrivedAtBottom);
