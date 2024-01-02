@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { BsList } from "react-icons/bs";
 
 //Assets
-import logoSvg from "../../assets/svg/Pokemon_logo.svg";
+import logo from "../../assets/images/Logo.png";
 
 //Contexts
 import { HeaderBgContext } from "../../contexts/HeaderBgContext";
@@ -49,7 +49,7 @@ const Header = () => {
             <header className={`${styles.header} ${headerBg}`}>
                 <h1 className={styles.logo}>
                     <NavLink to="/" onClick={closeNav}>
-                        <img src={logoSvg} alt="pokemon logo" />
+                        <img src={logo} alt="pokemon logo" />
                     </NavLink>
                 </h1>
                 <nav className={styles.nav} ref={navRef}>
