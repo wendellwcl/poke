@@ -2,6 +2,7 @@
 @import "../../../styles/mixins";
 
 .pokedex_container {
+    min-height: calc(100dvh - $header-height);
     padding: 16px;
     position: relative;
 
