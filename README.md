@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src='./src/assets/svg/ball.svg' alt='logo do projeto: ToDo App' width='400'>
+    <img src='./src/assets/svg/ball.svg' alt='logo do projeto: ToDo App' width='200'>
 </h1>
 
 <h2 align='center'><a href='https://wendellwcl.github.io/poke/' target='_blank' style='display: block; color: #b3bf54; font-weight: bold; margin: 30px'>Acessar Site</a></h2>
